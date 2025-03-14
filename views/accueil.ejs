@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanilla Pay International</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .hero-section {
+            background-image: linear-gradient(rgba(29, 24, 50, 0.5), rgba(29, 24, 50, 0.5)), url('/assets/images/pexels-mikhail-nilov-7534804\ 1.png');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .logo-container, .menu-container {
+            background-color: #1D1832;
+            height: 100px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-container {
+            width: 100%;
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+            padding-left: 10%;
+        }
+        
+        .nav-container {
+            display: flex;
+            align-items: center;
+            padding-top: 30px;
+        }
+        
+        .menu-container {
+            border-radius: 60px;
+            margin-left: auto;
+            margin-right: 10%;
+        }
+        .menu-container div {
+            font-size: 1.2rem;
+        }
+        
+        .hero-content {
+            margin-top: 8vh;
+        }
+        
+        .portfolio-button {
+            transform: scale(1.15);
+            margin-top: 2rem;
+            margin-left: 2rem;
+        }
+        
+        .portfolio-button span {
+            font-size: 1.25rem;
+            padding: 0 0.5rem;
+        }
+        
+        .portfolio-button .icon-container {
+            padding: 0.7rem;
+        }
+        
+        .portfolio-button svg {
+            height: 1.25rem;
+            width: 1.25rem;
+        }
+
+        /* section we secure the way */
+        
+       
+        .bg-white.rounded-\[100px\] {
+            position: relative;
+            z-index: 10;
+        }
+        .secure-section {
+            padding: 2.5rem !important; /* Padding augmenté pour plus d'espace vertical */
+        }
+        
+        .secure-section h2 {
+            margin-bottom: 1rem !important; /* Marge augmentée sous le titre */
+        }
+        
+        .secure-section p {
+            margin-bottom: 2rem !important; /* Marge augmentée sous le sous-titre */
+        }
+
+         /* Espacement entre les keypoints */
+         .keypoints-container {
+            gap: 2rem !important; /* Espace augmenté entre les keypoints */
+            
+        }
+        /* Keypoints agrandis */
+        .keypoint {
+            width: 70%; /* Agrandi de 70% à 85% */
+            padding: 1rem 1.25rem !important; /* Réduit la hauteur en diminuant le padding vertical */
+            margin-left: -5rem;
+            
+        }
+        
+        .keypoint p {
+            font-size: 1rem !important; /* Texte légèrement plus petit */
+            line-height: 1.4; /* Ligne plus serrée */
+            margin: 0; /* Pas de marge pour le texte */
+            margin-top: 30px;
+        }
+        
+        .keypoint-first {
+            margin-left: 5rem;
+        }
+        .keypoint-middle {
+            margin-right: 5rem;
+        }
+        .keypoint-last {
+            margin-left: 5rem;
+        }
+        
+        /* Icônes plus compactes dans les keypoints */
+        .keypoint .bg-blue-400 {
+            padding: 2rem !important; /* Cercle plus petit */
+        }
+        
+        .keypoint .w-12 {
+            width: 3rem !important; /* Icônes plus petites */
+            height: 3rem !important;
+        }
+    
+        /* Contenu principal grid layout */
+        .content-grid {
+            gap: 2rem !important; /* Espace augmenté entre les colonnes */
+            min-height: 600px; /* Hauteur minimale pour la grille de contenu */
+        }
+        
+        /* Conteneur d'image avec hauteur contrôlée */
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem;
+            margin-top: 100px;
+        }
+        
+        /* Section "Pourquoi nous?" */
+        .why-us-section {
+            background: linear-gradient(to bottom, #1D1832, #5A9BD4);
+            color: white;
+            padding: 8rem 0 8rem; /* Padding augmenté en haut et en bas */
+            position: relative;
+            margin-top: -80px; /* Marge négative plus importante pour remonter la section */
+            z-index: 5; /* Z-index inférieur à la section précédente */
+            margin-bottom: 0; /* Suppression de la marge en bas */
+            
+        }
+        
+        .why-us-heading {
+            color: white;
+            margin-bottom: 2rem;
+        }
+        
+        .why-us-phones {
+            position: relative;
+            margin-left: 1rem;
+            margin-top: 8rem;
+        }
+        
+        .phone-1 {
+            top: 70px;
+            position: relative;
+            z-index: 2;
+            width: 600px; /* Augmenter la largeur (à partir de 80%) */
+        }
+
+        .phone-2 {
+            position: absolute;
+            top: 40px; /* Ajuster la position verticale */
+            left: -300px; /* Ajuster la position horizontale pour plus de décalage */
+            z-index: 1;
+            width: 800px; /* Augmenter la largeur */
+        }
+    
+        /* Ajustement de la position de la section des bénéfices */
+        .benefit-container {
+            gap: 26rem;
+        }
+        .benefits {
+            margin-top: 15rem; /* Décale la section vers le bas */
+            margin-left: -10rem; /* Décale la section vers la gauche */
+            position: relative; /* Permet de positionner correctement l'élément */
+            z-index: 1; /* S'assure que la section est affichée sous l'info-bubble */
+        }
+     
+        .benefit-card {
+            width: 400px;
+            margin-bottom: 3rem; /* Augmenté l'espacement entre les cards */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .benefit-number {
+            font-size: 5rem; /* Légèrement plus grand */
+            font-weight: bold;
+            color: #5A9BD4;
+            line-height: 1;
+            margin-bottom: 0.5rem; /* Espace après le nombre */
+        }
+
+        .benefit-title {
+            font-weight: 600;
+            font-size: 1.3rem; /* Taille augmentée */
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .benefit-desc {
+            color: #e0e0e0;
+            line-height: 1.6; /* Hauteur de ligne améliorée */
+        }
+        
+        /* Positionnement et style de l'info-bulle */
+        .info-bubble {
+            position: absolute;
+            right: 0;
+            margin-right: -180px;
+            top: 10%;
+            max-width: 700px; /* Largeur réduite */
+            padding: 3rem 2.5rem 2rem 3rem;
+            background-color: white;
+            color: #333;
+            border-top-left-radius: 12rem;
+            border-bottom-left-radius: 12rem;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            text-align: center; /* Centrer le texte */
+            display: flex;
+            align-items: center; /* Centrer verticalement */
+            justify-content: center; /* Centrer horizontalement */
+        }
+
+        .download_container {
+            margin-left: 12rem; /* Suppression de la marge fixe */
+            display: inline-block; /* Pour que le conteneur s'adapte à la longueur du texte */
+            height: 60px; 
+            margin-top: 100px;           
+        }
+
+        .download-button {
+            background-color: white;
+            color: #1D1832;
+            border-radius: 2rem;
+            padding: 0.5rem 1rem; /* Padding réduit pour diminuer width et height */
+            white-space: nowrap; /* Empêche le texte de se wrapper */
+            display: inline-flex; /* Meilleur contrôle de l'alignement */
+            align-items: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 0.9rem; /* Taille de police légèrement réduite */
+            height: auto; /* Hauteur automatique */
+        }
+
+        
+        .download-button:hover {
+            background-color: #f0f0f0;
+            transform: translateY(-2px);
+        }
+        
+        .download-icon {
+            margin-right: 0.5rem;
+        }
+
+        .container {
+            padding-top: 120px;
+        }
+
+        /* Styles pour la section Impact */
+        .impact-section {
+            padding: 12rem 0 6rem; /* Augmenter le padding en haut */
+            position: relative;
+            overflow: visible; /* Permettre au contenu de déborder si nécessaire */
+            margin-top: -100px; /* Ajuster pour compenser le déplacement du laptop */
+            z-index: 7; /* Supérieur à la section "Pourquoi nous?" */
+        }
+      
+        
+        .advantage-box {
+            transition: transform 0.3s ease;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            border-radius: 24px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .laptop-container {      
+            margin: -50px auto 0; /* Marge négative pour remonter le laptop */
+            max-width: 700px; /* Augmenter la largeur maximale */
+            z-index: 21; /* Augmenter le z-index pour qu'il soit au premier plan */
+            position: relative;
+        }
+
+        .laptop-container img {
+        width: 100%; /* Assurer que l'image prend toute la largeur du conteneur */
+        transform: scale(1.15); /* Agrandir l'image de 20% */
+}
+        
+        /* Lignes de connexion */
+        .connection-line {
+            position: absolute;
+            background-color: #ffffff;
+        }
+        
+        
+        .advantage-box-container {
+            width: 400px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 20; /* Augmentation du z-index pour s'assurer qu'elles sont au-dessus */
+        }
+
+
+        /* Position spécifique pour chaque box */
+            .advantage-box-left {
+                position: absolute;
+                top: 20%; /* Légèrement plus haut */
+                left: 5%;
+            }
+
+            .advantage-box-bottom {
+                position: absolute;
+                bottom: -30%; /* Positionnement plus bas pour être sous l'ordinateur */
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .advantage-box-right {
+                position: absolute;
+                top: 65%;
+                right: 5%;
+            }
+
+        /* Ligne horizontale pour Impact (à gauche) */
+        .advantage-box-left .connection-line {
+            height: 120px; /* Plus longue */
+            width: 5px;
+            background-color: #1D1832;
+            top: 100%;
+            left: 50%;
+        }
+
+        /* Ligne horizontale pour Impact (à gauche) */
+        .advantage-box-left .horizontal-line {
+            position: absolute;
+            height: 5px;
+            width: 350px; /* Plus longue */
+            background-color: #1D1832;
+            top: calc(100% + 120px);
+            left: 50%;
+        }
+
+        /* Ligne pour Sécurité (en bas) */
+        .advantage-box-bottom .connection-line {
+            height: 200px; /* Ajustée */
+            width: 5px;
+            background-color: #5A9BD4;
+            bottom: 100%;
+            left: 50%;
+        }
+
+        /* Ligne pour Confort (à droite) */
+        .advantage-box-right .connection-line {
+            height: 141px;
+            width: 5px;
+            background-color: #454F9D;
+            bottom: 100%;
+            left: 51%;
+        }
+
+        /* Ligne horizontale pour Confort (à droite) */
+        .advantage-box-right .horizontal-line {
+            position: absolute;
+            height: 5px;
+            width: 400px;
+            background-color: #454F9D;
+            right: 48%;
+            bottom: 336px;
+        }
+      
+        /* Icônes dans les boîtes */
+        .icon-container {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+
+        /* Styles pour le footer */
+footer.bg-\[\#1D1832\] {
+    margin-top: 280px; /* Supprime la marge supérieure du footer */
+    position: relative;
+    z-index: 3; /* S'assure que le footer est au-dessus du séparateur */
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Légère bordure pour marquer la séparation */
+}
+
+/* Styles supplémentaires pour assurer la responsivité */
+@media (max-width: 768px) {
+    .impact-section {
+        padding-bottom: 6rem; /* Moins d'espace sur mobile */
+    }
+    
+    .impact-section::after {
+        height: 4rem; /* Séparateur plus petit sur mobile */
+    }
+    
+    /* Ajustements des boîtes d'avantages pour éviter le chevauchement */
+    .advantage-box-container {
+        position: static;
+        margin: 2rem auto;
+        width: 90%;
+        max-width: 400px;
+    }
+    
+    .advantage-box-left, .advantage-box-bottom, .advantage-box-right {
+        position: static;
+        transform: none;
+        margin-bottom: 2rem;
+    }
+    
+    /* Masquer les lignes de connexion qui pourraient causer des problèmes de mise en page */
+    .connection-line, .horizontal-line {
+        display: none;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+    <!-- Première section avec l'image d'arrière-plan -->
+    <div class="hero-section min-h-screen">
+        <!-- Navigation -->
+        <div class="nav-container">
+            <!-- Rectangle logo avec bordure droite arrondie -->
+            <div class="logo-container p-5 max-w-[450px]">
+                <img src="/assets/logo/VPI_Logo_black_background.png" alt="Vanilla Pay International" class="h-16 mx-auto">
+            </div>
+            
+            <!-- Navigation items déplacés vers la gauche avec CSS -->
+            <div class="menu-container p-6 w-auto border border-indigo-900/20">
+                <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 items-center">
+                    <div class="text-white hover:text-blue-300 transition cursor-pointer">ENTREPRISE</div>
+                    <div class="bg-transparent border border-white rounded-full px-6 py-2 text-white hover:bg-white hover:text-purple-900 transition cursor-pointer">PARTICULIER</div>
+                    <div class="text-white hover:text-blue-300 transition cursor-pointer">RESSOURCE</div>
+                    <!-- Langue selector -->
+                    <div class="flex items-center space-x-2 text-white">
+                        <span>LANGUE</span>
+                        <div class="flex items-center space-x-1">
+                            <img src="https://flagcdn.com/16x12/fr.png" alt="Français" class="w-6 h-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Hero content -->
+        <div class="px-4 md:px-10 pt-12 md:pt-24 flex flex-col items-start ml-20 hero-content">
+            <div>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-12">
+                    <div class="mb-5">SOLUTION INTERNATIONALE</div>
+                    <div class="mb-5">DE PAIEMENT NUMÉRIQUE</div>
+                    <div>POUR LES TOURISTES</div>
+                </h1>
+
+                <!-- Portfolio button -->
+                <div class="inline-flex items-center bg-gray-200 hover:bg-white transition rounded-full pl-8 pr-2 py-3 space-x-4 cursor-pointer portfolio-button">
+                    <span class="font-medium text-gray-800">Portfolio</span>
+                    <div class="bg-black rounded-full p-2 icon-container">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section "We secure the way, people pay" -->
+    <div class="bg-white rounded-[100px] mx-0 -mt-20 w-full max-w-none shadow-lg overflow-hidden">
+        <div class="p-4 md:p-8 lg:p-12 secure-section">
+            <!-- Titre principal -->
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-[#454F9D] mb-4">
+                " We secure the way, people pay "
+            </h2>
+            
+            <!-- Sous-titre -->
+            <p class="text-lg text-center text-[#5A9BD4] mb-8">
+                Touristes et voyageurs internationaux qui visitent les pays en développement :
+            </p>
+            
+            <!-- Contenu principal - grid layout -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center content-grid">
+                <!-- Conteneur pour l'image et le rectangle bleu -->
+                <div class="image-container relative" style="height: auto; max-height: 500px;">
+                    <!-- Rectangle bleu foncé en arrière-plan -->
+                    <div class="absolute inset-0 bg-[#1D1832] rounded-[70px]" style="z-index: 1; width: 550px; height: 600px; transform: translate(10rem, -5rem);"></div>
+                    <!-- Image -->
+                    <img src="/assets/images/detour.png" alt="Touriste utilisant l'application" class="rounded-xl relative" style="max-height: 100%; z-index: 2;">
+                </div>
+                
+                <!-- Keypoints avec espacement augmenté -->
+                <div class="flex flex-col space-y-6 keypoints-container" style="margin-left: 2rem;">
+                    <!-- Point 1 -->
+                    <div class="flex items-center bg-[#454F9D] rounded-full p-4 text-white keypoint keypoint-first"> 
+                        <div class="bg-[#5A9BD4] rounded-full p-4 flex-shrink-0 mr-3">
+                            <img src="/assets/images/give-money.png" alt="Icône billets" class="w-12 h-12">
+                        </div>
+                        <p class="text-sm md:text-base">
+                            Stop aux changes manuelles et au manipulation de liasse de billets par plusieurs centaines. Stop au calcul mental à chaque paiement
+                        </p>
+                    </div>
+                    
+                    <!-- Point 2 -->
+                    <div class="flex items-center bg-[#454F9D] rounded-full p-4 text-white keypoint keypoint-middle">
+                        <div class="bg-[#5A9BD4] rounded-full p-4 flex-shrink-0 mr-3">
+                            <img src="/assets/images/credit-card.png" alt="Icône carte bancaire" class="w-12 h-12">
+                        </div>
+                        <p class="text-sm md:text-base">
+                            Les paiements par cartes bancaires sont pratiques si les commerçants disposent de TPE (sic 😞). Malheureusement ce n'est pas toujours le cas dans tous les pays.
+                        </p>
+                    </div>
+                    
+                    <!-- Point 3 -->
+                    <div class="flex items-center bg-[#454F9D] rounded-full p-4 text-white keypoint keypoint-last">
+                        <div class="bg-[#5A9BD4] rounded-full p-4 flex-shrink-0 mr-3">
+                            <img src="/assets/images/project-management.png" alt="Icône engrenage" class="w-12 h-12">
+                        </div>
+                        <p class="text-sm md:text-base">
+                            Gérez plus facilement vos dépenses, stop au petit carnet. Vous êtes sur place pour du bon temps.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section "Pourquoi nous?" -->
+    <div class="why-us-section py-16 overflow-hidden">
+        <div class="container mx-auto px-4 relative">
+            <!-- Info bubble -->
+            <div class="info-bubble">
+                <p>En adoptant notre solution, vous aidez les entreprises dans les pays en développement à leurs inclusions financières. Les paiements numériques leur permettent d'emprunter plus à la banque et d'investir encore mieux pour agrandir leurs activités.</p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row">
+                <!-- Left side - Title and phones -->
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h2 class="text-7xl font-bold why-us-heading">
+                        Pourquoi <span class="text-[#5A9BD4]">nous?</span>
+                    </h2>
+                    
+                    <!-- Phones display -->
+                    <div class="why-us-phones">
+                        <img src="/assets/images/5c009976-fa00-4b1e-8935-ebb766b32d6f.png" alt="Screenshot application 1" class="phone-1">
+                        <img src="/assets/images/smart 1.png" alt="Screenshot application 2" class="phone-2">
+                    </div>
+                </div>
+                
+                <!-- Right side - 3 benefits -->
+                <div class="md:w-1/2 pl-0 md:pl-16 benefits">
+                    <!-- Grid container for benefits -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 benefit-container">
+                        <!-- Benefit 1 -->
+                        <div class="benefit-card">
+                            <div class="benefit-number">01</div>
+                            <h3 class="benefit-title">Sécurisé :</h3>
+                            <p class="benefit-desc">nos plateformes respectent les standards internationaux PCI-DSS. Nous facilitons vos paiements, nous ne gardons pas votre argent. Les transactions sont assurées par des PSP partenaires reconnus en Europe. Les entreprises partenaires.<a href="#" class="text-[#5A9BD4] hover:underline">voir plus</a></p>
+                        </div>
+                        
+                        <!-- Benefit 2 -->
+                        <div class="benefit-card">
+                            <div class="benefit-number">02</div>
+                            <h3 class="benefit-title">Pratique :</h3>
+                            <p class="benefit-desc">vous pouvez savoir à tout moment dans l'app, combien vous avez dépensé et dans quelle catégorie (hôtels, restau, loisirs, déplacement, autres activités.)</p>
+                        </div>
+                    </div>
+
+                    <!-- Grid container for benefit 3 and download button -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                        <!-- Benefit 3 -->
+                        <div class="benefit-card">
+                            <div class="benefit-number">03</div>
+                            <h3 class="benefit-title">Simple :</h3>
+                            <p class="benefit-desc">scannez le qrcode, saisissez le montant à payer en monnaie locale du pays et validez.</p>
+                        </div>
+                        
+                        <!-- Download button -->
+                        <div class="flex download_container">
+                            <a href="#" class="download-button">
+                                <svg class="download-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                                </svg>
+                                Télécharger l'app
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section Impact et Avantages -->
+    <div class="impact-section py-1">
+        <div class="container mx-auto px-4">            
+                <!-- Image centrale du laptop -->
+                <div class="laptop-container">
+                    <img src="/assets/images/iMac_Mockup_3.png" alt="Application sur laptop" class="">
+                </div>
+                
+                <!-- Boîte Impact (gauche) -->
+                <div class="advantage-box-container advantage-box-left">
+                    <div class="advantage-box bg-[#1D1832] text-white rounded-3xl p-6 text-center">
+                        <div class="icon-container mx-auto mb-4">
+                            <img src="/assets/images/stats (1).png" alt="Icône graphique" class="w-12 h-12 mx-auto">
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-2">Impact</h3>
+                        <p class="text-sm">Participation au développement du tourisme en Afrique</p>
+                    </div>
+                    <div class="connection-line"></div>
+                    <div class="horizontal-line"></div>
+                </div>
+                
+                <!-- Boîte Sécurité (bas) -->
+                <div class="advantage-box-container advantage-box-bottom">
+                    <div class="advantage-box bg-[#5A9BD4] text-white rounded-3xl p-6 text-center">
+                        <div class="icon-container mx-auto mb-4">
+                            <img src="/assets/images/police.png" alt="Icône bouclier" class="w-12 h-12 mx-auto">
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-2">Sécurité</h3>
+                        <p class="text-sm">Solution pour un paiement digital sécurisé</p>
+                    </div>
+                    <div class="connection-line"></div>
+                </div>
+                
+                <!-- Boîte Confort (droite) -->
+                <div class="advantage-box-container advantage-box-right">
+                    <div class="advantage-box bg-[#454F9D] text-white rounded-3xl p-6 text-center">
+                        <div class="icon-container mx-auto mb-4">
+                            <img src="/assets/images/fintech.png" alt="Icône confort" class="w-12 h-12 mx-auto">
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-2">Confort</h3>
+                        <p class="text-sm">Pratique et facile à utiliser</p>
+                    </div>
+                    <div class="connection-line"></div>
+                    <div class="horizontal-line"></div>
+                </div>
+            </div>
+    </div>
+
+
+    <!-- Footer -->
+<footer class="bg-[#1D1832] text-white py-2 mt-24">
+    <div class="container mx-auto px-4">
+        <!-- Section principale du footer -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 border-b border-gray-700 pb-8">
+            <!-- Logo et réseaux sociaux -->
+            <div class="mb-6 md:mb-0">
+                <img src="/assets/logo/VPI_Logo_black_background.png" alt="Vanilla Pay International" class="h-12 mb-4">
+                <!-- Icônes réseaux sociaux -->
+                <div class="flex space-x-4 bg-gray-200 rounded-full p-2 w-max">
+                    <a href="#" class="hover:opacity-75 transition">
+                        <img src="https://cdnjs.cloudflare.com/ajax/libs/simple-icons/8.8.0/facebook.svg" alt="Facebook" class="w-8 h-8 p-1">
+                    </a>
+                    <a href="#" class="hover:opacity-75 transition">
+                        <img src="https://cdnjs.cloudflare.com/ajax/libs/simple-icons/8.8.0/instagram.svg" alt="Instagram" class="w-8 h-8 p-1">
+                    </a>
+                    <a href="#" class="hover:opacity-75 transition">
+                        <img src="https://cdnjs.cloudflare.com/ajax/libs/simple-icons/8.8.0/linkedin.svg" alt="LinkedIn" class="w-8 h-8 p-1">
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Navigation -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Menu principal -->
+                <div class="hidden md:block">
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:text-[#5A9BD4] transition">Accueil</a></li>
+                        <li><a href="#" class="hover:text-[#5A9BD4] transition">Services</a></li>
+                        <li><a href="#" class="hover:text-[#5A9BD4] transition">À propos</a></li>
+                        <li><a href="#" class="hover:text-[#5A9BD4] transition">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div class="col-span-3 md:text-right">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-start md:justify-end">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            <a href="mailto:business@vanillapay.net" class="hover:text-[#5A9BD4] transition">business@vanillapay.net</a>
+                        </div>
+                        <div class="flex items-center justify-start md:justify-end">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                            </svg>
+                            <a href="tel:+261385916273" class="hover:text-[#5A9BD4] transition">+261 38 59 162 73</a>
+                        </div>
+                        <div class="flex items-center justify-start md:justify-end">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                            </svg>
+                            <a href="https://blog.vanilla-pay.net" target="_blank" class="hover:text-[#5A9BD4] transition">blog.vanilla-pay.net</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Copyright et mentions légales -->
+        <div class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+            <div>© 2025 Votre Entreprise. Tous droits réservés.</div>
+            <div class="mt-4 md:mt-0">
+                <a href="#" class="hover:text-white transition">Conditions générales</a>
+                <span class="mx-2">-</span>
+                <a href="#" class="hover:text-white transition">Mentions légales</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+</body>
+</html>
