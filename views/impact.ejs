@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanilla Pay International</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Styles pour la section Impact */
+        .impact-section {
+            padding: 12rem 0 15rem;
+            position: relative;
+            overflow: visible;
+            margin-top: -100px;
+            z-index: 7;
+            min-height: 1000px;
+        }
+
+        .laptop-container {      
+            margin: 40px auto 0;
+            max-width: 700px;
+            z-index: 21;
+            position: relative;
+        }
+
+        .laptop-container img {
+            width: 100%;
+            transform: scale(1.15);
+        }
+
+        /* Lignes de connexion */
+        .connection-line {
+            position: absolute;
+            background-color: #ffffff;
+        }
+
+        .advantage-box {
+            transition: transform 0.3s ease;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            border-radius: 24px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .advantage-box-container {
+            width: 400px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 20;
+        }
+
+        /* Position spécifique pour chaque box */
+        .advantage-box-left {
+            position: absolute;
+            left: 5%;
+            top: 130px;
+        }
+
+        .advantage-box-bottom {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 40px;
+        }
+
+        .advantage-box-right {
+            position: absolute;
+            right: 5%;
+            top: 400px;
+        }
+
+        /* Ligne horizontale pour Impact (à gauche) */
+        .advantage-box-left .connection-line {
+            height: 120px;
+            width: 5px;
+            background-color: #1D1832;
+            top: 100%;
+            left: 50%;
+        }
+
+        .advantage-box-left .horizontal-line {
+            position: absolute;
+            height: 5px;
+            width: 350px;
+            background-color: #1D1832;
+            top: calc(100% + 120px);
+            left: 50%;
+        }
+
+        /* Ligne pour Sécurité (en bas) */
+        .advantage-box-bottom .connection-line {
+            height: 200px;
+            width: 5px;
+            background-color: #5A9BD4;
+            bottom: 100%;
+            left: 50%;
+        }
+
+        /* Ligne pour Confort (à droite) */
+        .advantage-box-right .connection-line {
+            height: 141px;
+            width: 5px;
+            background-color: #454F9D;
+            bottom: 100%;
+            left: 51%;
+        }
+
+        /* Ligne horizontale pour Confort (à droite) */
+        .advantage-box-right .horizontal-line {
+            position: absolute;
+            height: 5px;
+            width: 400px;
+            background-color: #454F9D;
+            right: 48%;
+            bottom: 336px;
+        }
+
+        /* Icônes dans les boîtes */
+        .icon-container {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+
+        /* Ajustements pour les écrans supérieurs à 1900px */
+        @media (min-width: 1900px) {
+            .impact-section {
+                padding: 15rem 0 20rem;
+                min-height: 1200px;
+            }
+
+            .laptop-container {
+                max-width: 900px;
+            }
+
+            .advantage-box-container {
+                width: 500px;
+            }
+
+            .advantage-box-left {
+                left: 10%;
+                top: 150px;
+            }
+
+            .advantage-box-bottom {
+                bottom: 60px;
+            }
+
+            .advantage-box-right {
+                right: 10%;
+                top: 450px;
+            }
+
+            .advantage-box-left .horizontal-line {
+                width: 650px;
+            }
+
+            .advantage-box-right .horizontal-line {
+                width: 500px;
+            }
+        }
+
+        /* Ajustements pour les tablettes (entre 762px et 1600px) */
+        @media (min-width: 762px) and (max-width: 1600px) {
+            .impact-section {
+                padding: 10rem 0 15rem;
+                min-height: 1100px;
+            }
+
+            .laptop-container {
+                max-width: 600px;
+            }
+
+            .advantage-box-container {
+                width: 350px;
+            }
+
+            .advantage-box-left {
+                left: 5%;
+                top: 450px;
+            }
+
+            .advantage-box-bottom {
+                bottom: 150px;
+            }
+
+            .advantage-box-right {
+                right: 5%;
+                top: 550px;
+            }
+
+      
+
+            .advantage-box-right .horizontal-line {
+                width: 350px;
+            }
+        }
+
+        /* Ajustements pour les écrans mobiles */
+        @media (max-width: 768px) {
+            .impact-section {
+                padding: 8rem 0 50rem;
+                min-height: 1400px;
+            }
+
+            .advantage-box-container {
+                position: static;
+                margin: 2rem auto;
+                width: 90%;
+                max-width: 400px;
+            }
+
+            .advantage-box-left, .advantage-box-bottom, .advantage-box-right {
+                position: static;
+                transform: none;
+                margin-bottom: 2rem;
+            }
+
+            .connection-line, .horizontal-line {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Section Impact et Avantages -->
+    <div class="impact-section py-1">
+        <div class="container mx-auto px-4">            
+            <!-- Image centrale du laptop -->
+            <div class="laptop-container">
+                <img src="/assets/images/iMac_Mockup_3.png" alt="Application sur laptop" class="">
+            </div>
+            
+            <!-- Boîte Impact (gauche) -->
+            <div class="advantage-box-container advantage-box-left">
+                <div class="advantage-box bg-[#1D1832] text-white rounded-3xl p-6 text-center">
+                    <div class="icon-container mx-auto mb-4">
+                        <img src="/assets/images/stats (1).png" alt="Icône graphique" class="w-12 h-12 mx-auto">
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-2">Impact</h3>
+                    <p class="text-sm">Participation au développement du tourisme en Afrique</p>
+                </div>
+                <div class="connection-line"></div>
+                <div class="horizontal-line"></div>
+            </div>
+            
+            <!-- Boîte Sécurité (bas) -->
+            <div class="advantage-box-container advantage-box-bottom">
+                <div class="advantage-box bg-[#5A9BD4] text-white rounded-3xl p-6 text-center">
+                    <div class="icon-container mx-auto mb-4">
+                        <img src="/assets/images/police.png" alt="Icône bouclier" class="w-12 h-12 mx-auto">
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-2">Sécurité</h3>
+                    <p class="text-sm">Solution pour un paiement digital sécurisé</p>
+                </div>
+                <div class="connection-line"></div>
+            </div>
+            
+            <!-- Boîte Confort (droite) -->
+            <div class="advantage-box-container advantage-box-right">
+                <div class="advantage-box bg-[#454F9D] text-white rounded-3xl p-6 text-center">
+                    <div class="icon-container mx-auto mb-4">
+                        <img src="/assets/images/fintech.png" alt="Icône confort" class="w-12 h-12 mx-auto">
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-2">Confort</h3>
+                    <p class="text-sm">Pratique et facile à utiliser</p>
+                </div>
+                <div class="connection-line"></div>
+                <div class="horizontal-line"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanilla Pay International</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        .hero-section {
+            background-image: linear-gradient(rgba(29, 24, 50, 0.5), rgba(29, 24, 50, 0.5)), url('/assets/images/pexels-mikhail-nilov-7534804\ 1.png');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            width: 100%;
+        }
+        
+        .logo-container, .menu-container {
+            background-color: #1D1832;
+            height: 100px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-container {
+            width: 100%;
+            max-width: 450px;
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+            padding-left: 10%;
+        }
+        
+        .nav-container {
+            display: flex;
+            align-items: center;
+            padding-top: 30px;
+            width: 100%;
+            position: relative;
+        }
+        
+        .menu-container {
+            border-radius: 60px;
+            margin-left: auto;
+            margin-right: 10%;
+            padding: 0 1.5rem;
+            min-width: 850px;
+        }
+        
+        .menu-container div {
+            font-size: 1.2rem;
+        }
+        
+        .menu-container .flex .md\:space-x-8 {
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
+        
+        .hero-content {
+            margin-top: 8vh;
+        }
+        
+        .portfolio-button {
+            margin-top: 2rem;
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+            height: 85px;
+            border-radius: 9999px;
+        }
+        
+        .portfolio-button span {
+            font-size: 1.1rem;
+            padding: 0 1rem;
+            align-items: center;
+        }
+        
+        .icon-container {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            padding: 0;
+        }
+        
+        .portfolio-button svg {
+            height: 1rem;
+            width: 1rem;
+            display: block;
+        }
+        
+        .mobile-menu-button {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 35px;
+            z-index: 50;
+        }
+        
+        /* Media Queries */
+        @media (max-width: 1280px) {
+            .menu-container {
+                min-width: 700px;
+            }
+        }
+        
+        @media (max-width: 1024px) {
+            .nav-container {
+                flex-direction: column;
+            }
+            
+            .logo-container {
+                max-width: 90%;
+                width: 90%;
+                margin: 0 auto;
+                border-radius: 30px;
+                justify-content: center;
+                padding-left: 0;
+            }
+            
+            .menu-container {
+                margin: 20px auto;
+                width: 90%;
+                min-width: auto;
+                max-width: 90%;
+            }
+            
+            .hero-content {
+                margin-left: 5% !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-button {
+                display: block;
+            }
+            
+            .nav-container {
+                padding-top: 15px;
+            }
+            
+            .logo-container {
+                height: 80px;
+                justify-content: center;
+                padding: 0;
+                z-index: 40;
+            }
+            
+            .menu-container {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 0;
+                overflow: hidden;
+                opacity: 0;
+                transition: opacity 0.3s ease, height 0s 0.3s;
+                border-radius: 0;
+                margin: 0;
+                padding: 100px 20px 40px;
+                z-index: 30;
+            }
+            
+            .menu-container.active {
+                height: 100vh;
+                opacity: 1;
+                transition: opacity 0.3s ease;
+            }
+            
+            .menu-container .flex {
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                height: 100%;
+            }
+            
+            .menu-container .flex > div {
+                margin: 15px 0;
+            }
+            
+            .hero-content {
+                margin-left: 0 !important;
+                padding: 0 20px;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+                text-align: center;
+            }
+            
+            .portfolio-button {
+                height: 70px;
+                margin: 2rem auto;
+            }
+            
+            .icon-container {
+                width: 45px;
+                height: 45px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo-container img {
+                height: 50px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .portfolio-button {
+                height: 60px;
+            }
+            
+            .icon-container {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+
+          /* section we secure the way */ 
+          .bg-white.rounded-section {
+            position: relative;
+            z-index: 10;
+            border-radius: 100px;
+            margin-top: -20px;
+            width: 100%;
+            max-width: none;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .secure-section {
+            padding: 2.5rem;
+        }
+        
+        .secure-section h2 {
+            margin-bottom: 1rem;
+            color: #454F9D;
+        }
+        
+        .secure-section p {
+            margin-bottom: 2rem;
+            color: #5A9BD4;
+        }
+
+        /* Conteneur principal */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        /* Image et rectangle bleu */
+        .image-container {
+            position: relative;
+            height: auto;
+            max-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 0;
+        }
+        
+        .blue-rectangle {
+            top:30px;
+            position: absolute;
+            background-color: #1D1832;
+            border-radius: 70px;
+            z-index: 1;
+            width: 518px;
+            height: 511px;
+            transform: translate(40px, -40px);
+        }
+        
+        .image-container img {
+            position: relative;
+            z-index: 2;
+            max-width: 100%;
+            max-height: 500px;
+            border-radius: 0.75rem;
+        }
+        
+        /* Keypoints */
+        .keypoints-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .keypoint {
+            display: flex;
+            align-items: center;
+            background-color: #454F9D;
+            border-radius: 9999px;
+            padding: 1rem 1.5rem;
+            color: white;
+            width: 100%;
+            max-width: 580px;
+            transition: all 0.3s ease;
+        }
+        
+        .keypoint-first {
+            margin-left: 0;
+            align-self: flex-start;
+        }
+        
+        .keypoint-middle {
+            align-self: center;
+        }
+        
+        .keypoint-last {
+            margin-right: 0;
+            align-self: flex-end;
+        }
+        
+        .keypoint-icon {
+            background-color: #5A9BD4;
+            border-radius: 9999px;
+            padding: 1rem;
+            margin-right: 1rem;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .keypoint-icon img {
+            width: 3rem;
+            height: 3rem;
+        }
+        
+        .keypoint p {
+            margin: 0;
+            font-size: 1rem;
+            line-height: 1.4;
+            color: white;
+        }
+        
+        /* Media Queries */
+        @media (max-width: 1280px) {
+            .blue-rectangle {
+                width: 450px;
+                height: 500px;
+                transform: translate(30px, -30px);
+            }
+            
+            .keypoint {
+                max-width: 520px;
+            }
+        }
+        
+        @media (max-width: 1024px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .blue-rectangle {
+                width: 400px;
+                height: 450px;
+                transform: translate(20px, -20px);
+            }
+            
+            .keypoints-container {
+                margin-top: 2rem;
+                margin-left: 0;
+            }
+            
+            .keypoint {
+                align-self: center !important;
+                max-width: 90%;
+                margin: 0 auto;
+            }
+            
+            .keypoint-icon {
+                padding: 0.75rem;
+            }
+            
+            .keypoint-icon img {
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .bg-white.rounded-section {
+                border-radius: 50px;
+            }
+            
+            .secure-section {
+                padding: 2rem 1.5rem;
+            }
+            
+            .secure-section h2 {
+                font-size: 1.75rem;
+            }
+            
+            .secure-section p {
+                font-size: 1rem;
+            }
+            
+            .image-container {
+                padding: 1rem 0;
+                max-height: 400px;
+                margin: 0 auto;
+                width: 90%;
+            }
+            
+            .blue-rectangle {
+                width: 300px;
+                height: 350px;
+                transform: translate(15px, -15px);
+            }
+            
+            .keypoint {
+                padding: 0.75rem 1.25rem;
+                max-width: 95%;
+            }
+            
+            .keypoint-icon {
+                padding: 0.5rem;
+            }
+            
+            .keypoint-icon img {
+                width: 2rem;
+                height: 2rem;
+            }
+            
+            .keypoint p {
+                font-size: 0.875rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .bg-white.rounded-section {
+                border-radius: 30px;
+                margin-top: -10px;
+            }
+            
+            .secure-section {
+                padding: 1.5rem 1rem;
+            }
+            
+            .secure-section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .image-container {
+                max-height: 300px;
+            }
+            
+            .blue-rectangle {
+                width: 220px;
+                height: 270px;
+                transform: translate(10px, -10px);
+                border-radius: 40px;
+            }
+            
+            .keypoint {
+                flex-direction: column;
+                text-align: center;
+                padding: 1rem;
+                border-radius: 20px;
+            }
+            
+            .keypoint-icon {
+                margin-right: 0;
+                margin-bottom: 0.75rem;
+            }
+            
+            .keypoint p {
+                font-size: 0.8rem;
+            }
+        }
+
+
+
+         /* Section "Pourquoi nous?" */
+         .why-us-section {
+            background: linear-gradient(to bottom, #1D1832, #5A9BD4);
+            color: white;
+            padding: 8rem 0 3rem;
+            position: relative;
+            margin-top: -80px;
+            z-index: 5;
+            margin-bottom: 0;
+        }
+        
+        .why-us-section h2 {
+            margin-top: 1rem;
+            position: relative;
+            top: 50px;
+        }
+
+        .why-us-phones {
+            position: relative;
+            margin-left: 1rem;
+            margin-top: 8rem;
+        }
+
+        .phone-1 {
+            top: 70px;
+            position: relative;
+            z-index: 2;
+            width: 600px;
+        }
+
+        .phone-2 {
+            position: absolute;
+            top: 40px;
+            left: -300px;
+            z-index: 1;
+            width: 800px;
+        }
+
+        .benefit-container {
+            gap: 26rem;
+        }
+        
+        .benefits {
+            margin-top: 15rem;
+            margin-left: -10rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .benefit-card {
+            width: 400px;
+            margin-bottom: 3rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .benefit-number {
+            font-size: 5rem;
+            font-weight: bold;
+            color: #5A9BD4;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .benefit-title {
+            font-weight: 600;
+            font-size: 1.3rem;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .benefit-desc {
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        .info-bubble {
+            position: absolute;
+            right: 0;
+            margin-right: -180px;
+            max-width: 700px;
+            padding: 3rem 2.5rem 2rem 3rem;
+            background-color: white;
+            color: #333;
+            border-top-left-radius: 12rem;
+            border-bottom-left-radius: 12rem;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .download_container {
+            margin-left: 12rem;
+            display: inline-block;
+            height: 60px; 
+            margin-top: 100px;           
+        }
+
+        .download-button {
+            background-color: white;
+            color: #1D1832;
+            border-radius: 2rem;
+            padding: 0.5rem 1rem;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 0.9rem;
+            height: auto;
+        }
+
+        .download-button:hover {
+            background-color: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        .download-icon {
+            margin-right: 0.5rem;
+        }
+        
+        /* Media Queries pour rendre la page responsive */
+        
+        /* Grand écran */
+        @media (min-width: 1441px) {
+            .phone-1 {
+                width: 650px;
+            }
+            .phone-2 {
+                width: 850px;
+                left: -320px;
+            }
+        }
+        
+        /* Écrans moyens et petits desktops */
+        @media (max-width: 1440px) {
+            .benefit-container {
+                gap: 20rem;
+            }
+            .phone-1 {
+                width: 550px;
+            }
+            .phone-2 {
+                width: 750px;
+                left: -280px;
+            }
+            .info-bubble {
+                max-width: 600px;
+                margin-right: -150px;
+            }
+        }
+        
+        /* Petits desktops et grandes tablettes */
+        @media (max-width: 1200px) {
+            .info-bubble {
+                max-width: 500px;
+                margin-right: -100px;
+                border-top-left-radius: 8rem;
+                border-bottom-left-radius: 8rem;
+                padding: 2rem 2rem 1.5rem 2.5rem;
+            }
+            .benefit-container {
+                gap: 15rem;
+            }
+            .benefits {
+                margin-left: -5rem;
+            }
+            .phone-1 {
+                width: 450px;
+            }
+            .phone-2 {
+                width: 600px;
+                left: -200px;
+            }
+            .benefit-card {
+                width: 350px;
+            }
+            .download_container {
+                margin-left: 8rem;
+            }
+        }
+        
+        /* Tablettes */
+        @media (max-width: 992px) {
+            .why-us-section h2 {
+                font-size: 4rem;
+                top: 30px;
+            }
+            .info-bubble {
+                position: relative;
+                margin-right: 0;
+                max-width: 100%;
+                border-radius: 2rem;
+                margin-bottom: 2rem;
+                margin-top: 6rem;
+            }
+            .phone-1 {
+                width: 400px;
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+            }
+            .phone-2 {
+                width: 500px;
+                left: -120px;
+                top: 60px;
+            }
+            .benefits {
+                margin-top: 5rem;
+                margin-left: 0;
+            }
+            .benefit-container {
+                gap: 2rem;
+            }
+            .benefit-card {
+                width: 100%;
+            }
+            .download_container {
+                margin-left: 0;
+                margin-top: 50px;
+            }
+            .why-us-phones {
+                margin-top: 4rem;
+                display: flex;
+                justify-content: center;
+            }
+        }
+        
+        /* Petites tablettes et grands mobiles */
+        @media (max-width: 768px) {
+            .why-us-section {
+                padding-top: 6rem;
+            }
+            .why-us-section h2 {
+                font-size: 3.5rem;
+                text-align: center;
+                top: 0;
+            }
+            .phone-1 {
+                width: 350px;
+                top: 40px;
+            }
+            .phone-2 {
+                width: 450px;
+                left: -100px;
+                top: 30px;
+            }
+            .benefit-number {
+                font-size: 4rem;
+            }
+            .benefit-title {
+                font-size: 1.2rem;
+            }
+            .why-us-phones {
+                margin-top: 3rem;
+                margin-left: 0;
+            }
+        }
+        
+        /* Mobiles */
+        @media (max-width: 576px) {
+            .why-us-section {
+                margin-top: -40px;
+                padding-top: 4rem;
+            }
+            .why-us-section h2 {
+                font-size: 2.8rem;
+            }
+            .why-us-phones {
+                margin-top: 2rem;
+                overflow: hidden;
+                max-width: 100%;
+            }
+            .phone-1 {
+                width: 250px;
+                top: 30px;
+                margin: 0 auto;
+            }
+            .phone-2 {
+                width: 300px;
+                left: -50px;
+                top: 20px;
+            }
+            .benefit-card {
+                margin-bottom: 2rem;
+            }
+            .benefit-number {
+                font-size: 3.5rem;
+            }
+            .benefit-container {
+                gap: 1rem;
+                grid-template-columns: 1fr !important;
+            }
+            .info-bubble {
+                padding: 1.5rem;
+                margin-top: 4rem;
+                font-size: 0.9rem;
+            }
+            .download_container {
+                margin-top: 20px;
+                justify-content: center;
+                display: flex;
+            }
+        }
+        
+        /* Très petits mobiles */
+        @media (max-width: 375px) {
+            .why-us-section h2 {
+                font-size: 2.3rem;
+            }
+            .phone-1 {
+                width: 200px;
+            }
+            .phone-2 {
+                width: 250px;
+                left: -40px;
+            }
+            .benefit-number {
+                font-size: 3rem;
+            }
+            .benefit-title {
+                font-size: 1.1rem;
+            }
+            .benefit-desc {
+                font-size: 0.9rem;
+            }
+        }
+
+
+
+ /* Styles pour la section Impact */
+ .impact-section {
+            padding: 12rem 0 15rem;
+            position: relative;
+            overflow: visible;
+            margin-top: -100px;
+            z-index: 7;
+            min-height: 1000px;
+        }
+
+        .laptop-container {      
+            margin: 40px auto 0;
+            max-width: 700px;
+            z-index: 21;
+            position: relative;
+        }
+
+        .laptop-container img {
+            width: 100%;
+            transform: scale(1.15);
+        }
+
+        /* Lignes de connexion */
+        .connection-line {
+            position: absolute;
+            background-color: #ffffff;
+        }
+
+        .advantage-box {
+            transition: transform 0.3s ease;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            border-radius: 24px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .advantage-box-container {
+            width: 400px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 20;
+        }
+
+        /* Position spécifique pour chaque box */
+        .advantage-box-left {
+            position: absolute;
+            left: 5%;
+            top: 130px;
+        }
+
+        .advantage-box-bottom {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 40px;
+        }
+
+        .advantage-box-right {
+            position: absolute;
+            right: 5%;
+            top: 400px;
+        }
+
+        /* Ligne horizontale pour Impact (à gauche) */
+        .advantage-box-left .connection-line {
+            height: 120px;
+            width: 5px;
+            background-color: #1D1832;
+            top: 100%;
+            left: 50%;
+        }
+
+        .advantage-box-left .horizontal-line {
+            position: absolute;
+            height: 5px;
+            width: 350px;
+            background-color: #1D1832;
+            top: calc(100% + 120px);
+            left: 50%;
+        }
+
+        /* Ligne pour Sécurité (en bas) */
+        .advantage-box-bottom .connection-line {
+            height: 200px;
+            width: 5px;
+            background-color: #5A9BD4;
+            bottom: 100%;
+            left: 50%;
+        }
+
+        /* Ligne pour Confort (à droite) */
+        .advantage-box-right .connection-line {
+            height: 141px;
+            width: 5px;
+            background-color: #454F9D;
+            bottom: 100%;
+            left: 51%;
+        }
+
+        /* Ligne horizontale pour Confort (à droite) */
+        .advantage-box-right .horizontal-line {
+            position: absolute;
+            height: 5px;
+            width: 400px;
+            background-color: #454F9D;
+            right: 48%;
+            bottom: 336px;
+        }
+
+        /* Icônes dans les boîtes */
+        .icon-container {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+
+        /* Ajustements pour les écrans supérieurs à 1900px */
+        @media (min-width: 2000px) {
+            .impact-section {
+                padding: 15rem 0 20rem;
+                min-height: 1200px;
+            }
+
+            .laptop-container {
+                max-width: 900px;
+            }
+
+            .advantage-box-container {
+                width: 500px;
+            }
+
+            .advantage-box-left {
+                left: 10%;
+                top: 150px;
+            }
+
+            .advantage-box-bottom {
+                bottom: 60px;
+            }
+
+            .advantage-box-right {
+                right: 10%;
+                top: 450px;
+            }
+
+            .advantage-box-left .horizontal-line {
+                width: 650px;
+            }
+
+            .advantage-box-right .horizontal-line {
+                width: 500px;
+            }
+        }
+
+        /* Ajustements pour les tablettes (entre 762px et 1600px) */
+        @media (min-width: 762px) and (max-width: 1600px) {
+            .impact-section {
+                padding: 10rem 0 15rem;
+                min-height: 1100px;
+            }
+
+            .laptop-container {
+                max-width: 600px;
+            }
+
+            .advantage-box-container {
+                width: 350px;
+            }
+
+            .advantage-box-left {
+                left: 5%;
+                top: 450px;
+            }
+
+            .advantage-box-bottom {
+                bottom: 150px;
+            }
+
+            .advantage-box-right {
+                right: 5%;
+                top: 550px;
+            }
+
+      
+
+            .advantage-box-right .horizontal-line {
+                width: 350px;
+            }
+        }
+
+        /* Ajustements pour les écrans mobiles */
+        @media (max-width: 768px) {
+            .impact-section {
+                padding: 8rem 0 50rem;
+                min-height: 1400px;
+            }
+
+            .advantage-box-container {
+                position: static;
+                margin: 2rem auto;
+                width: 90%;
+                max-width: 400px;
+            }
+
+            .advantage-box-left, .advantage-box-bottom, .advantage-box-right {
+                position: static;
+                transform: none;
+                margin-bottom: 2rem;
+            }
+
+            .connection-line, .horizontal-line {
+                display: none;
+            }
+        }
+
+
+
+ /* Styles pour le footer */
+        footer.bg-\[\#1D1832\] {
+        position: relative;
+        z-index: 3; 
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+    /* Élargir le logo */
+footer img[alt="Vanilla Pay International"] {
+  height: 3.5rem; /* Augmenter la taille du logo (était à 3rem/12) */
+  margin-bottom: 1rem;
+}
+
+/* Élargir le conteneur des réseaux sociaux */
+footer .flex.space-x-4.bg-gray-200.rounded-full {
+  padding: 0.5rem 1rem; /* Augmenter le padding horizontal */
+  width: auto; /* Remplacer w-max pour plus de flexibilité */
+}
+
+/* Élargir les icônes des réseaux sociaux */
+footer .flex.space-x-4 img {
+  width: 2.25rem; /* Élargir les icônes (était à 2rem/8) */
+  height: 2.25rem;
+  padding: 0.25rem;
+}
+
+
+    /* Ajustement de la ligne verticale */
+    footer .hidden.md\:block.h-auto.w-px.bg-gray-700 {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        opacity: 0.6;
+    }
+
+    /* Centrage vertical du contenu */
+    footer .flex.flex-col.md\:flex-row.md\:space-x-12 {
+        align-items: center;
+    }
+
+/* Ajustements pour la version mobile */
+@media (max-width: 768px) {
+    footer .flex-col.md\:flex-row.md\:space-x-12 {
+        margin-bottom: 2rem;
+    }
+    
+    footer .mt-6.md\:mt-0 {
+        margin-top: 2rem;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="hero-section">
+        <!-- Navigation -->
+        <div class="nav-container">
+            <!-- Mobile menu button -->
+            <button id="mobile-menu-toggle" class="mobile-menu-button">☰</button>
+            
+            <!-- Rectangle logo avec bordure droite arrondie -->
+            <div class="logo-container p-5">
+                <img src="/assets/logo/VPI_Logo_black_background.png" alt="Vanilla Pay International" class="h-16 mx-auto">
+            </div>
+            
+            <!-- Navigation items -->
+            <div id="menu-container" class="menu-container p-12 border border-indigo-900/20">
+                <div class="flex md:flex-row md:space-x-12 items-center">
+                    <div class="text-white hover:text-blue-300 transition cursor-pointer px-4">ENTREPRISE</div>
+                    <div class="bg-transparent border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-purple-900 transition cursor-pointer">PARTICULIER</div>
+                    <div class="text-white hover:text-blue-300 transition cursor-pointer px-4">RESSOURCE</div>
+                    <!-- Langue selector -->
+                    <div class="flex items-center space-x-3 text-white">
+                        <span>LANGUE</span>
+                        <div class="flex items-center space-x-2">
+                            <img src="https://flagcdn.com/16x12/fr.png" alt="Français" class="w-6 h-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Hero content -->
+        <div class="px-4 md:px-10 pt-12 md:pt-24 flex flex-col items-start md:ml-20 hero-content">
+            <div>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-12">
+                    <div class="mb-5">SOLUTION INTERNATIONALE</div>
+                    <div class="mb-5">DE PAIEMENT NUMÉRIQUE</div>
+                    <div>POUR LES TOURISTES</div>
+                </h1>
+
+                <!-- Portfolio button avec icône arrondie -->
+                <div class="inline-flex items-center justify-center bg-gray-200 hover:bg-white transition rounded-full cursor-pointer portfolio-button">
+                    <span class="font-medium text-gray-800">Portfolio</span>
+                    <div class="bg-black icon-container flex items-center justify-center ml-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section "We secure the way, people pay" -->
+ <div class="bg-white rounded-section">
+    <div class="secure-section">
+        <!-- Titre principal -->
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">
+            " We secure the way, people pay "
+        </h2>
+        
+        <!-- Sous-titre -->
+        <p class="text-lg text-center mb-8">
+            Touristes et voyageurs internationaux qui visitent les pays en développement :
+        </p>
+        
+        <!-- Contenu principal - grid layout -->
+        <div class="content-grid">
+            <!-- Conteneur pour l'image et le rectangle bleu -->
+            <div class="image-container">
+                <!-- Rectangle bleu foncé en arrière-plan -->
+                <div class="blue-rectangle"></div>
+                <!-- Image -->
+                <img src="/assets/images/detour.png" alt="Touriste utilisant l'application">
+            </div>
+            
+            <!-- Keypoints -->
+            <div class="keypoints-container">
+                <!-- Point 1 -->
+                <div class="keypoint keypoint-first">
+                    <div class="keypoint-icon">
+                        <img src="/assets/images/give-money.png" alt="Icône billets">
+                    </div>
+                    <p>
+                        Stop aux changes manuelles et au manipulation de liasse de billets par plusieurs centaines. Stop au calcul mental à chaque paiement
+                    </p>
+                </div>
+                
+                <!-- Point 2 -->
+                <div class="keypoint keypoint-middle">
+                    <div class="keypoint-icon">
+                        <img src="/assets/images/credit-card.png" alt="Icône carte bancaire">
+                    </div>
+                    <p>
+                        Les paiements par cartes bancaires sont pratiques si les commerçants disposent de TPE (sic 😞). Malheureusement ce n'est pas toujours le cas dans tous les pays.
+                    </p>
+                </div>
+                
+                <!-- Point 3 -->
+                <div class="keypoint keypoint-last">
+                    <div class="keypoint-icon">
+                        <img src="/assets/images/project-management.png" alt="Icône engrenage">
+                    </div>
+                    <p>
+                        Gérez plus facilement vos dépenses, stop au petit carnet. Vous êtes sur place pour du bon temps.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Section "Pourquoi nous?" -->
+<div class="why-us-section py-18 overflow-hidden">
+    <div class="container mx-auto px-4 relative">
+        <!-- Info bubble -->
+        <div class="info-bubble">
+            <p>En adoptant notre solution, vous aidez les entreprises dans les pays en développement à leurs inclusions financières. Les paiements numériques leur permettent d'emprunter plus à la banque et d'investir encore mieux pour agrandir leurs activités.</p>
+        </div>
+        
+        <div class="flex flex-col md:flex-row">
+            <!-- Left side - Title and phones -->
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h2 class="text-7xl font-bold">
+                    Pourquoi <span class="text-[#5A9BD4]">nous?</span>
+                </h2>
+                
+                <!-- Phones display -->
+                <div class="why-us-phones">
+                    <img src="/assets/images/5c009976-fa00-4b1e-8935-ebb766b32d6f.png" alt="Screenshot application 1" class="phone-1">
+                    <img src="/assets/images/smart 1.png" alt="Screenshot application 2" class="phone-2">
+                </div>
+            </div>
+            
+            <!-- Right side - 3 benefits -->
+            <div class="md:w-1/2 pl-0 md:pl-16 benefits">
+                <!-- Grid container for benefits -->
+                <div class="grid grid-cols-1 md:grid-cols-2 benefit-container">
+                    <!-- Benefit 1 -->
+                    <div class="benefit-card">
+                        <div class="benefit-number">01</div>
+                        <h3 class="benefit-title">Sécurisé :</h3>
+                        <p class="benefit-desc">nos plateformes respectent les standards internationaux PCI-DSS. Nous facilitons vos paiements, nous ne gardons pas votre argent. Les transactions sont assurées par des PSP partenaires reconnus en Europe. Les entreprises partenaires.<a href="#" class="text-[#5A9BD4] hover:underline">voir plus</a></p>
+                    </div>
+                    
+                    <!-- Benefit 2 -->
+                    <div class="benefit-card">
+                        <div class="benefit-number">02</div>
+                        <h3 class="benefit-title">Pratique :</h3>
+                        <p class="benefit-desc">vous pouvez savoir à tout moment dans l'app, combien vous avez dépensé et dans quelle catégorie (hôtels, restau, loisirs, déplacement, autres activités.)</p>
+                    </div>
+                </div>
+
+                <!-- Grid container for benefit 3 and download button -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                    <!-- Benefit 3 -->
+                    <div class="benefit-card">
+                        <div class="benefit-number">03</div>
+                        <h3 class="benefit-title">Simple :</h3>
+                        <p class="benefit-desc">scannez le qrcode, saisissez le montant à payer en monnaie locale du pays et validez.</p>
+                    </div>
+                    
+                    <!-- Download button -->
+                    <div class="flex download_container">
+                        <a href="#" class="download-button">
+                            <svg class="download-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                            </svg>
+                            Télécharger l'app
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+  <!-- Section Impact et Avantages -->
+  <div class="impact-section py-1">
+    <div class="container mx-auto px-4">            
+        <!-- Image centrale du laptop -->
+        <div class="laptop-container">
+            <img src="/assets/images/iMac_Mockup_3.png" alt="Application sur laptop" class="">
+        </div>
+        
+        <!-- Boîte Impact (gauche) -->
+        <div class="advantage-box-container advantage-box-left">
+            <div class="advantage-box bg-[#1D1832] text-white rounded-3xl p-6 text-center">
+                <div class="icon-container mx-auto mb-4">
+                    <img src="/assets/images/stats (1).png" alt="Icône graphique" class="w-12 h-12 mx-auto">
+                </div>
+                <h3 class="text-2xl font-semibold mb-2">Impact</h3>
+                <p class="text-sm">Participation au développement du tourisme en Afrique</p>
+            </div>
+            <div class="connection-line"></div>
+            <div class="horizontal-line"></div>
+        </div>
+        
+        <!-- Boîte Sécurité (bas) -->
+        <div class="advantage-box-container advantage-box-bottom">
+            <div class="advantage-box bg-[#5A9BD4] text-white rounded-3xl p-6 text-center">
+                <div class="icon-container mx-auto mb-4">
+                    <img src="/assets/images/police.png" alt="Icône bouclier" class="w-12 h-12 mx-auto">
+                </div>
+                <h3 class="text-2xl font-semibold mb-2">Sécurité</h3>
+                <p class="text-sm">Solution pour un paiement digital sécurisé</p>
+            </div>
+            <div class="connection-line"></div>
+        </div>
+        
+        <!-- Boîte Confort (droite) -->
+        <div class="advantage-box-container advantage-box-right">
+            <div class="advantage-box bg-[#454F9D] text-white rounded-3xl p-6 text-center">
+                <div class="icon-container mx-auto mb-4">
+                    <img src="/assets/images/fintech.png" alt="Icône confort" class="w-12 h-12 mx-auto">
+                </div>
+                <h3 class="text-2xl font-semibold mb-2">Confort</h3>
+                <p class="text-sm">Pratique et facile à utiliser</p>
+            </div>
+            <div class="connection-line"></div>
+            <div class="horizontal-line"></div>
+        </div>
+    </div>
+</div>
+
+ <!-- Footer -->
+<footer class="bg-[#1D1832] text-white py-6">
+    <div class="container mx-auto px-4">
+        <!-- Section principale du footer -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 border-b border-white pb-6">
+            <!-- Logo et réseaux sociaux -->
+            <div class="flex flex-col md:flex-row md:space-x-12 mb-6 md:mb-0">
+                <!-- Logo et réseaux sociaux -->
+                <div>
+                    <img src="/assets/logo/VPI_Logo_black_background.png" alt="Vanilla Pay International" class="h-12 mb-4">
+                    <!-- Icônes réseaux sociaux -->
+                    <div class="flex space-x-4 bg-gray-200 rounded-full p-2 w-max">
+                        <a href="#" class="hover:opacity-75 transition">
+                            <img src="https://cdnjs.cloudflare.com/ajax/libs/simple-icons/8.8.0/facebook.svg" alt="Facebook" class="w-8 h-8 p-1">
+                        </a>
+                        <a href="#" class="hover:opacity-75 transition">
+                            <img src="https://cdnjs.cloudflare.com/ajax/libs/simple-icons/8.8.0/instagram.svg" alt="Instagram" class="w-8 h-8 p-1">
+                        </a>
+                        <a href="#" class="hover:opacity-75 transition">
+                            <img src="https://cdnjs.cloudflare.com/ajax/libs/simple-icons/8.8.0/linkedin.svg" alt="LinkedIn" class="w-8 h-8 p-1">
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Ligne verticale de séparation -->
+                <div class="hidden md:block h-auto w-px bg-white mx-6 self-stretch"></div>
+                
+                <!-- Menu principal déplacé à côté -->
+                <div class="mt-6 md:mt-0">
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:text-[#5A9BD4] transition">Accueil</a></li>
+                        <li><a href="#" class="hover:text-[#5A9BD4] transition">Services</a></li>
+                        <li><a href="#" class="hover:text-[#5A9BD4] transition">À propos</a></li>
+                        <li><a href="#" class="hover:text-[#5A9BD4] transition">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Contact -->
+            <div class="md:text-right">
+                <div class="space-y-3">
+                    <div class="flex items-center justify-start md:justify-end">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        <a href="mailto:business@vanillapay.net" class="hover:text-[#5A9BD4] transition">business@vanillapay.net</a>
+                    </div>
+                    <div class="flex items-center justify-start md:justify-end">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                        </svg>
+                        <a href="tel:+261385916273" class="hover:text-[#5A9BD4] transition">+261 38 59 162 73</a>
+                    </div>
+                    <div class="flex items-center justify-start md:justify-end">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                        </svg>
+                        <a href="https://blog.vanilla-pay.net" target="_blank" class="hover:text-[#5A9BD4] transition">blog.vanilla-pay.net</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Copyright et mentions légales -->
+        <div class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+            <div>© 2025 Votre Entreprise. Tous droits réservés.</div>
+            <div class="mt-4 md:mt-0">
+                <a href="#" class="hover:text-white transition">Conditions générales</a>
+                <span class="mx-2">-</span>
+                <a href="#" class="hover:text-white transition">Mentions légales</a>
+            </div>
+        </div>
+    </div>
+  </footer>
+
+    <script>
+        // JavaScript pour le menu mobile
+        const menuToggle = document.getElementById('mobile-menu-toggle');
+        const menuContainer = document.getElementById('menu-container');
+        
+        menuToggle.addEventListener('click', function() {
+            menuContainer.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

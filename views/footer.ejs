@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanilla Pay International</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Styles pour le footer */
+footer.bg-\[\#1D1832\] {
+position: relative;
+z-index: 3; 
+border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Élargir le logo */
+footer img[alt="Vanilla Pay International"] {
+height: 3.5rem; /* Augmenter la taille du logo (était à 3rem/12) */
+margin-bottom: 1rem;
+}
+
+/* Élargir le conteneur des réseaux sociaux */
+footer .flex.space-x-4.bg-gray-200.rounded-full {
+padding: 0.5rem 1rem; /* Augmenter le padding horizontal */
+width: auto; /* Remplacer w-max pour plus de flexibilité */
+}
+
+/* Élargir les icônes des réseaux sociaux */
+footer .flex.space-x-4 img {
+width: 2.25rem; /* Élargir les icônes (était à 2rem/8) */
+height: 2.25rem;
+padding: 0.25rem;
+}
+
+
+/* Ajustement de la ligne verticale */
+footer .hidden.md\:block.h-auto.w-px.bg-gray-700 {
+margin-top: 0.5rem;
+margin-bottom: 0.5rem;
+opacity: 0.6;
+}
+
+/* Centrage vertical du contenu */
+footer .flex.flex-col.md\:flex-row.md\:space-x-12 {
+align-items: center;
+}
+
+/* Ajustements pour la version mobile */
+@media (max-width: 768px) {
+footer .flex-col.md\:flex-row.md\:space-x-12 {
+margin-bottom: 2rem;
+}
+
+footer .mt-6.md\:mt-0 {
+margin-top: 2rem;
+}
+}
+</style>
+</head>
+<body>
+<!-- Footer -->
+<footer class="bg-[#1D1832] text-white py-6">
+    <div class="container mx-auto px-4">
+        <!-- Section principale du footer -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 border-b border-white pb-6">
+            <!-- Logo et réseaux sociaux -->
+            <div class="flex flex-col md:flex-row md:space-x-12 mb-6 md:mb-0">
+                <!-- Logo et réseaux sociaux -->
+                <div>
+                    <img src="/assets/logo/VPI_Logo_black_background.png" alt="Vanilla Pay International" class="h-12 mb-4">
+                    <!-- Icônes réseaux sociaux -->
+                    <div class="flex space-x-4 bg-gray-200 rounded-full p-2 w-max">
+                        <a href="#" class="hover:opacity-75 transition">
+                            <img src="https://cdnjs.cloudflare.com/ajax/libs/simple-icons/8.8.0/facebook.svg" alt="Facebook" class="w-8 h-8 p-1">
+                        </a>
+                        <a href="#" class="hover:opacity-75 transition">
+                            <img src="https://cdnjs.cloudflare.com/ajax/libs/simple-icons/8.8.0/instagram.svg" alt="Instagram" class="w-8 h-8 p-1">
+                        </a>
+                        <a href="#" class="hover:opacity-75 transition">
+                            <img src="https://cdnjs.cloudflare.com/ajax/libs/simple-icons/8.8.0/linkedin.svg" alt="LinkedIn" class="w-8 h-8 p-1">
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Ligne verticale de séparation -->
+                <div class="hidden md:block h-auto w-px bg-white mx-6 self-stretch"></div>
+                
+                <!-- Menu principal déplacé à côté -->
+                <div class="mt-6 md:mt-0">
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:text-[#5A9BD4] transition">Accueil</a></li>
+                        <li><a href="#" class="hover:text-[#5A9BD4] transition">Services</a></li>
+                        <li><a href="#" class="hover:text-[#5A9BD4] transition">À propos</a></li>
+                        <li><a href="#" class="hover:text-[#5A9BD4] transition">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Contact -->
+            <div class="md:text-right">
+                <div class="space-y-3">
+                    <div class="flex items-center justify-start md:justify-end">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        <a href="mailto:business@vanillapay.net" class="hover:text-[#5A9BD4] transition">business@vanillapay.net</a>
+                    </div>
+                    <div class="flex items-center justify-start md:justify-end">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                        </svg>
+                        <a href="tel:+261385916273" class="hover:text-[#5A9BD4] transition">+261 38 59 162 73</a>
+                    </div>
+                    <div class="flex items-center justify-start md:justify-end">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                        </svg>
+                        <a href="https://blog.vanilla-pay.net" target="_blank" class="hover:text-[#5A9BD4] transition">blog.vanilla-pay.net</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Copyright et mentions légales -->
+        <div class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+            <div>© 2025 Votre Entreprise. Tous droits réservés.</div>
+            <div class="mt-4 md:mt-0">
+                <a href="#" class="hover:text-white transition">Conditions générales</a>
+                <span class="mx-2">-</span>
+                <a href="#" class="hover:text-white transition">Mentions légales</a>
+            </div>
+        </div>
+    </div>
+  </footer>
+  
+  
+  </body>
+  </html>

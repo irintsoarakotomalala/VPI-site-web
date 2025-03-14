@@ -9,9 +9,12 @@ app.use(express.static('public'));
 
 // Routes
 app.get('/', (req, res) => {
-    res.render('accueil', { title: 'Accueil' });
+    res.render('accueilTest', { title: 'Accueil' });
 });
 
+app.get('/test', (req, res) => {
+    res.render('test', { title: 'À propos' });
+});
 
 // Démarrer le serveur
 app.listen(3000, () => {

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanilla Pay International</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        /* section we secure the way */ 
+        .bg-white.rounded-section {
+            position: relative;
+            z-index: 10;
+            border-radius: 100px;
+            margin-top: -20px;
+            width: 100%;
+            max-width: none;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .secure-section {
+            padding: 2.5rem;
+        }
+        
+        .secure-section h2 {
+            margin-bottom: 1rem;
+            color: #454F9D;
+        }
+        
+        .secure-section p {
+            margin-bottom: 2rem;
+            color: #5A9BD4;
+        }
+
+        /* Conteneur principal */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        /* Image et rectangle bleu */
+        .image-container {
+            position: relative;
+            height: auto;
+            max-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 0;
+        }
+        
+        .blue-rectangle {
+            top:30px;
+            position: absolute;
+            background-color: #1D1832;
+            border-radius: 70px;
+            z-index: 1;
+            width: 518px;
+            height: 511px;
+            transform: translate(40px, -40px);
+        }
+        
+        .image-container img {
+            position: relative;
+            z-index: 2;
+            max-width: 100%;
+            max-height: 500px;
+            border-radius: 0.75rem;
+        }
+        
+        /* Keypoints */
+        .keypoints-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .keypoint {
+            display: flex;
+            align-items: center;
+            background-color: #454F9D;
+            border-radius: 9999px;
+            padding: 1rem 1.5rem;
+            color: white;
+            width: 100%;
+            max-width: 580px;
+            transition: all 0.3s ease;
+        }
+        
+        .keypoint-first {
+            margin-left: 0;
+            align-self: flex-start;
+        }
+        
+        .keypoint-middle {
+            align-self: center;
+        }
+        
+        .keypoint-last {
+            margin-right: 0;
+            align-self: flex-end;
+        }
+        
+        .keypoint-icon {
+            background-color: #5A9BD4;
+            border-radius: 9999px;
+            padding: 1rem;
+            margin-right: 1rem;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .keypoint-icon img {
+            width: 3rem;
+            height: 3rem;
+        }
+        
+        .keypoint p {
+            margin: 0;
+            font-size: 1rem;
+            line-height: 1.4;
+            color: white;
+        }
+        
+        /* Media Queries */
+        @media (max-width: 1280px) {
+            .blue-rectangle {
+                width: 450px;
+                height: 500px;
+                transform: translate(30px, -30px);
+            }
+            
+            .keypoint {
+                max-width: 520px;
+            }
+        }
+        
+        @media (max-width: 1024px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .blue-rectangle {
+                width: 400px;
+                height: 450px;
+                transform: translate(20px, -20px);
+            }
+            
+            .keypoints-container {
+                margin-top: 2rem;
+                margin-left: 0;
+            }
+            
+            .keypoint {
+                align-self: center !important;
+                max-width: 90%;
+                margin: 0 auto;
+            }
+            
+            .keypoint-icon {
+                padding: 0.75rem;
+            }
+            
+            .keypoint-icon img {
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .bg-white.rounded-section {
+                border-radius: 50px;
+            }
+            
+            .secure-section {
+                padding: 2rem 1.5rem;
+            }
+            
+            .secure-section h2 {
+                font-size: 1.75rem;
+            }
+            
+            .secure-section p {
+                font-size: 1rem;
+            }
+            
+            .image-container {
+                padding: 1rem 0;
+                max-height: 400px;
+                margin: 0 auto;
+                width: 90%;
+            }
+            
+            .blue-rectangle {
+                width: 300px;
+                height: 350px;
+                transform: translate(15px, -15px);
+            }
+            
+            .keypoint {
+                padding: 0.75rem 1.25rem;
+                max-width: 95%;
+            }
+            
+            .keypoint-icon {
+                padding: 0.5rem;
+            }
+            
+            .keypoint-icon img {
+                width: 2rem;
+                height: 2rem;
+            }
+            
+            .keypoint p {
+                font-size: 0.875rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .bg-white.rounded-section {
+                border-radius: 30px;
+                margin-top: -10px;
+            }
+            
+            .secure-section {
+                padding: 1.5rem 1rem;
+            }
+            
+            .secure-section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .image-container {
+                max-height: 300px;
+            }
+            
+            .blue-rectangle {
+                width: 220px;
+                height: 270px;
+                transform: translate(10px, -10px);
+                border-radius: 40px;
+            }
+            
+            .keypoint {
+                flex-direction: column;
+                text-align: center;
+                padding: 1rem;
+                border-radius: 20px;
+            }
+            
+            .keypoint-icon {
+                margin-right: 0;
+                margin-bottom: 0.75rem;
+            }
+            
+            .keypoint p {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+ <!-- Section "We secure the way, people pay" -->
+ <div class="bg-white rounded-section">
+    <div class="secure-section">
+        <!-- Titre principal -->
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">
+            " We secure the way, people pay "
+        </h2>
+        
+        <!-- Sous-titre -->
+        <p class="text-lg text-center mb-8">
+            Touristes et voyageurs internationaux qui visitent les pays en développement :
+        </p>
+        
+        <!-- Contenu principal - grid layout -->
+        <div class="content-grid">
+            <!-- Conteneur pour l'image et le rectangle bleu -->
+            <div class="image-container">
+                <!-- Rectangle bleu foncé en arrière-plan -->
+                <div class="blue-rectangle"></div>
+                <!-- Image -->
+                <img src="/assets/images/detour.png" alt="Touriste utilisant l'application">
+            </div>
+            
+            <!-- Keypoints -->
+            <div class="keypoints-container">
+                <!-- Point 1 -->
+                <div class="keypoint keypoint-first">
+                    <div class="keypoint-icon">
+                        <img src="/assets/images/give-money.png" alt="Icône billets">
+                    </div>
+                    <p>
+                        Stop aux changes manuelles et au manipulation de liasse de billets par plusieurs centaines. Stop au calcul mental à chaque paiement
+                    </p>
+                </div>
+                
+                <!-- Point 2 -->
+                <div class="keypoint keypoint-middle">
+                    <div class="keypoint-icon">
+                        <img src="/assets/images/credit-card.png" alt="Icône carte bancaire">
+                    </div>
+                    <p>
+                        Les paiements par cartes bancaires sont pratiques si les commerçants disposent de TPE (sic 😞). Malheureusement ce n'est pas toujours le cas dans tous les pays.
+                    </p>
+                </div>
+                
+                <!-- Point 3 -->
+                <div class="keypoint keypoint-last">
+                    <div class="keypoint-icon">
+                        <img src="/assets/images/project-management.png" alt="Icône engrenage">
+                    </div>
+                    <p>
+                        Gérez plus facilement vos dépenses, stop au petit carnet. Vous êtes sur place pour du bon temps.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
