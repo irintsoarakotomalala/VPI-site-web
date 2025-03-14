@@ -41,37 +41,57 @@
         }
         
         .menu-container {
-            border-radius: 60px;
-            margin-left: auto;
-            margin-right: 10%;
-        }
-        .menu-container div {
-            font-size: 1.2rem;
-        }
+          border-radius: 60px;
+          margin-left: auto;
+          margin-right: 10%;
+          padding: 0 1.5rem; /* Padding horizontal augmenté */
+          min-width: 850px; /* Largeur minimale augmentée */
+      }
+
+      /* Augmentation de l'espacement entre les éléments du menu */
+      .menu-container div {
+          font-size: 1.2rem;
+      }
+
+      .menu-container .flex .md\:space-x-8 {
+          margin-left: 1rem;
+          margin-right: 1rem;
+      }
+
+   
         
         .hero-content {
             margin-top: 8vh;
         }
         
         .portfolio-button {
-            transform: scale(1.15);
-            margin-top: 2rem;
-            margin-left: 2rem;
-        }
-        
-        .portfolio-button span {
-            font-size: 1.25rem;
-            padding: 0 0.5rem;
-        }
-        
-        .portfolio-button .icon-container {
-            padding: 0.7rem;
-        }
-        
-        .portfolio-button svg {
-            height: 1.25rem;
-            width: 1.25rem;
-        }
+    margin-top: 2rem;
+    display: inline-flex; /* Assure un meilleur alignement */
+    align-items: center; /* Centre les éléments verticalement */
+    padding: 0.5rem 0.5rem 0.5rem 1.5rem; /* Réduit le padding pour diminuer la hauteur */
+    height: 85px; /* Définit une hauteur fixe plus petite */
+}
+
+.portfolio-button span {
+    font-size: 1.1rem; /* Réduit légèrement la taille du texte */
+    padding: 0 1rem;
+    align-items: center;
+
+}
+
+ .icon-container {
+    padding: 0.5rem; /* Réduit le padding du conteneur d'icône */
+    display: flex; /* Assure que l'icône est centrée dans son conteneur */
+    justify-content: center;
+    margin-top: 15  px;
+}
+
+.portfolio-button svg {
+    height: 1rem; /* Réduit la taille de l'icône */
+    width: 1rem;
+    display: block; /* Aide à centrer l'icône */
+    align-self: center;
+}
 
         /* section we secure the way */
         
@@ -151,20 +171,21 @@
         .why-us-section {
             background: linear-gradient(to bottom, #1D1832, #5A9BD4);
             color: white;
-            padding: 8rem 0 8rem; /* Padding augmenté en haut et en bas */
+            padding: 8rem 0 3rem; /* Padding augmenté en haut et en bas */
             position: relative;
             margin-top: -80px; /* Marge négative plus importante pour remonter la section */
             z-index: 5; /* Z-index inférieur à la section précédente */
             margin-bottom: 0; /* Suppression de la marge en bas */
             
         }
+        /* Ajoutez cette règle CSS dans la section des styles */
+.why-us-section h2 {
+    margin-top: 1rem; /* Ajoute une marge en haut du titre */
+    position: relative;
+    top: 50px; /* Déplace le titre vers le bas */
+}
         
-        .why-us-heading {
-            color: white;
-            margin-bottom: 2rem;
-        }
-        
-        .why-us-phones {
+           .why-us-phones {
             position: relative;
             margin-left: 1rem;
             margin-top: 8rem;
@@ -228,7 +249,6 @@
             position: absolute;
             right: 0;
             margin-right: -180px;
-            top: 10%;
             max-width: 700px; /* Largeur réduite */
             padding: 3rem 2.5rem 2rem 3rem;
             background-color: white;
@@ -276,34 +296,19 @@
             margin-right: 0.5rem;
         }
 
-        .container {
-            padding-top: 120px;
-        }
-
         /* Styles pour la section Impact */
         .impact-section {
-            padding: 12rem 0 6rem; /* Augmenter le padding en haut */
-            position: relative;
-            overflow: visible; /* Permettre au contenu de déborder si nécessaire */
-            margin-top: -100px; /* Ajuster pour compenser le déplacement du laptop */
-            z-index: 7; /* Supérieur à la section "Pourquoi nous?" */
-        }
-      
-        
-        .advantage-box {
-            transition: transform 0.3s ease;
-            min-height: 200px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            width: 100%;
-            border-radius: 24px;
-            padding: 20px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        
+        padding: 12rem 0 15rem; /* Augmentation du padding en bas pour contenir tous les éléments */
+        position: relative;
+        overflow: visible;
+        margin-top: -100px;
+        z-index: 7;
+        min-height: 1000px; /* Garantir une hauteur minimale pour contenir tous les éléments */
+    }
+
+
         .laptop-container {      
-            margin: -50px auto 0; /* Marge négative pour remonter le laptop */
+            margin: 40px auto 0; /* Marge négative pour remonter le laptop */
             max-width: 700px; /* Augmenter la largeur maximale */
             z-index: 21; /* Augmenter le z-index pour qu'il soit au premier plan */
             position: relative;
@@ -319,7 +324,17 @@
             position: absolute;
             background-color: #ffffff;
         }
-        
+        .advantage-box {
+            transition: transform 0.3s ease;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            border-radius: 24px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
         
         .advantage-box-container {
             width: 400px;
@@ -334,21 +349,24 @@
         /* Position spécifique pour chaque box */
             .advantage-box-left {
                 position: absolute;
-                top: 20%; /* Légèrement plus haut */
                 left: 5%;
+                top:130px;
+             
             }
 
             .advantage-box-bottom {
-                position: absolute;
-                bottom: -30%; /* Positionnement plus bas pour être sous l'ordinateur */
-                left: 50%;
-                transform: translateX(-50%);
-            }
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 40px; /* Position plus basse par rapport au bas de la section */
+          /* S'assurer qu'elle est au-dessus des autres éléments */
+        }
 
             .advantage-box-right {
                 position: absolute;
-                top: 65%;
                 right: 5%;
+                top: 400px;
+             
             }
 
         /* Ligne horizontale pour Impact (à gauche) */
@@ -411,24 +429,63 @@
         }
 
         /* Styles pour le footer */
-footer.bg-\[\#1D1832\] {
-    margin-top: 280px; /* Supprime la marge supérieure du footer */
-    position: relative;
-    z-index: 3; /* S'assure que le footer est au-dessus du séparateur */
-    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Légère bordure pour marquer la séparation */
+        footer.bg-\[\#1D1832\] {
+        position: relative;
+        z-index: 3; 
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+    /* Élargir le logo */
+footer img[alt="Vanilla Pay International"] {
+  height: 3.5rem; /* Augmenter la taille du logo (était à 3rem/12) */
+  margin-bottom: 1rem;
+}
+
+/* Élargir le conteneur des réseaux sociaux */
+footer .flex.space-x-4.bg-gray-200.rounded-full {
+  padding: 0.5rem 1rem; /* Augmenter le padding horizontal */
+  width: auto; /* Remplacer w-max pour plus de flexibilité */
+}
+
+/* Élargir les icônes des réseaux sociaux */
+footer .flex.space-x-4 img {
+  width: 2.25rem; /* Élargir les icônes (était à 2rem/8) */
+  height: 2.25rem;
+  padding: 0.25rem;
+}
+
+
+    /* Ajustement de la ligne verticale */
+    footer .hidden.md\:block.h-auto.w-px.bg-gray-700 {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        opacity: 0.6;
+    }
+
+    /* Centrage vertical du contenu */
+    footer .flex.flex-col.md\:flex-row.md\:space-x-12 {
+        align-items: center;
+    }
+
+/* Ajustements pour la version mobile */
+@media (max-width: 768px) {
+    footer .flex-col.md\:flex-row.md\:space-x-12 {
+        margin-bottom: 2rem;
+    }
+    
+    footer .mt-6.md\:mt-0 {
+        margin-top: 2rem;
+    }
 }
 
 /* Styles supplémentaires pour assurer la responsivité */
+/* Ajustements responsive */
 @media (max-width: 768px) {
     .impact-section {
-        padding-bottom: 6rem; /* Moins d'espace sur mobile */
+        padding: 8rem 0 50rem; /* Encore plus de padding sur mobile pour éviter les chevauchements */
+        min-height: 1400px;
     }
     
-    .impact-section::after {
-        height: 4rem; /* Séparateur plus petit sur mobile */
-    }
-    
-    /* Ajustements des boîtes d'avantages pour éviter le chevauchement */
     .advantage-box-container {
         position: static;
         margin: 2rem auto;
@@ -442,9 +499,489 @@ footer.bg-\[\#1D1832\] {
         margin-bottom: 2rem;
     }
     
-    /* Masquer les lignes de connexion qui pourraient causer des problèmes de mise en page */
     .connection-line, .horizontal-line {
         display: none;
+    }
+}
+
+/* === RESPONSIVE DESIGN === */
+/* Styles généraux pour tous les appareils */
+@media (max-width: 1200px) {
+    .menu-container {
+        min-width: auto;
+        padding: 0 1rem;
+    }
+    
+    .logo-container {
+        max-width: 350px;
+    }
+    
+    .content-grid {
+        gap: 1rem !important;
+    }
+    
+    .info-bubble {
+        max-width: 500px;
+        margin-right: -50px;
+    }
+    
+    .why-us-phones .phone-1 {
+        width: 500px;
+    }
+    
+    .why-us-phones .phone-2 {
+        width: 700px;
+        left: -250px;
+    }
+    
+    .benefit-container {
+        gap: 20rem;
+    }
+}
+
+/* Tablettes large et petits ordinateurs */
+@media (max-width: 992px) {
+    /* Navigation */
+    .nav-container {
+        flex-direction: column;
+        padding-top: 10px;
+    }
+    
+    .logo-container {
+        width: 80%;
+        max-width: none;
+        border-radius: 30px;
+        padding-left: 5%;
+        margin-bottom: 15px;
+        height: 70px;
+    }
+    
+    .menu-container {
+        margin-left: 0;
+        margin-right: 0;
+        width: 90%;
+        padding: 0 1rem;
+        height: auto;
+        min-height: 70px;
+    }
+    
+    .menu-container div {
+        font-size: 1rem;
+    }
+    
+    /* Hero section */
+    .hero-content {
+        margin-left: 10px;
+        margin-top: 4vh;
+    }
+    
+    /* Secure section */
+    .keypoint {
+        width: 90%;
+        margin-left: 0;
+    }
+    
+    .keypoint-first, .keypoint-middle, .keypoint-last {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    .image-container {
+        padding: 4rem;
+    }
+    
+    /* Why Us section */
+    .info-bubble {
+        position: relative;
+        margin: 0 auto 30px;
+        width: 90%;
+        max-width: 100%;
+        border-radius: 30px;
+        right: auto;
+    }
+    
+    .why-us-phones {
+        margin-top: 4rem;
+        margin-left: 0;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .phone-1 {
+        width: 400px;
+        position: relative;
+        z-index: 2;
+    }
+    
+    .phone-2 {
+        width: 500px;
+        left: -200px;
+    }
+    
+    .benefits {
+        margin-top: 8rem;
+        margin-left: 0;
+    }
+    
+    .benefit-container {
+        gap: 2rem;
+    }
+    
+    .download_container {
+        margin-left: 0;
+    }
+    
+    /* Impact section */
+    .laptop-container {
+        max-width: 90%;
+    }
+    
+    .advantage-box-container {
+        width: 300px;
+    }
+    
+    .advantage-box-left {
+        left: 2%;
+    }
+    
+    .advantage-box-right {
+        right: 2%;
+    }
+}
+
+/* Tablettes */
+@media (max-width: 768px) {
+    /* Navigation */
+    .menu-container .flex.flex-col.md\:flex-row.md\:space-x-12 {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 0;
+    }
+    
+    /* Hero section */
+    .hero-content {
+        margin-left: 0;
+        text-align: center;
+        align-items: center;
+    }
+    
+    h1.text-4xl.md\:text-5xl.lg\:text-6xl {
+        font-size: 2.5rem;
+    }
+    
+    /* Secure section */
+    .bg-white.rounded-\[100px\] {
+        border-radius: 50px;
+    }
+    
+    .image-container {
+        padding: 2rem;
+    }
+    
+    .image-container .absolute.inset-0.bg-\[\#1D1832\].rounded-\[70px\] {
+        width: 100%;
+        height: 100%;
+        transform: translate(0, 0);
+    }
+    
+    /* Why Us section */
+    .why-us-section {
+        padding: 4rem 0 2rem;
+    }
+    
+    .why-us-section h2 {
+        font-size: 4rem;
+        text-align: center;
+        top: 0;
+    }
+    
+    .why-us-phones {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-top: 2rem;
+    }
+    
+    .phone-1 {
+        width: 60%;
+        max-width: 300px;
+    }
+    
+    .phone-2 {
+        width: 70%;
+        max-width: 350px;
+        left: -30%;
+        top: 20px;
+    }
+    
+    .benefit-card {
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto 2rem;
+    }
+    
+    /* Impact section */
+    .impact-section {
+        padding: 8rem 0 25rem;
+    }
+    
+    .laptop-container img {
+        transform: scale(1);
+    }
+    
+    .advantage-box-container {
+        width: 80%;
+        max-width: 280px;
+    }
+    
+    .advantage-box-left {
+        top: 50px;
+    }
+    
+    .advantage-box-right {
+        top: 300px;
+    }
+    
+    .advantage-box-bottom {
+        bottom: -150px;
+    }
+}
+
+/* Smartphones */
+@media (max-width: 576px) {
+    /* Navigation */
+    .logo-container {
+        height: 60px;
+        width: 90%;
+    }
+    
+    .logo-container img {
+        height: 40px;
+    }
+    
+    /* Hero section */
+    h1.text-4xl.md\:text-5xl.lg\:text-6xl {
+        font-size: 2rem;
+    }
+    
+    .portfolio-button {
+        height: 60px;
+    }
+    
+    /* Secure section */
+    .bg-white.rounded-\[100px\] {
+        border-radius: 30px;
+        margin-top: -30px;
+    }
+    
+    .secure-section h2 {
+        font-size: 1.5rem;
+    }
+    
+    .keypoint {
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem !important;
+    }
+    
+    .keypoint .bg-blue-400 {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    
+    /* Why Us section */
+    .why-us-section {
+        margin-top: -30px;
+    }
+    
+    .why-us-section h2 {
+        font-size: 2.5rem;
+    }
+    
+    .phone-1 {
+        width: 80%;
+        max-width: 250px;
+    }
+    
+    .phone-2 {
+        width: 90%;
+        max-width: 300px;
+        left: -30%;
+    }
+    
+    .benefit-number {
+        font-size: 3.5rem;
+    }
+    
+    .download-button {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    /* Impact section */
+    .impact-section {
+        padding: 4rem 0 35rem;
+    }
+    
+    .advantage-box {
+        min-height: 150px;
+    }
+    
+    /* Footer */
+    footer .flex.flex-col.md\:flex-row.md\:space-x-12 {
+        align-items: flex-start;
+    }
+    
+    footer .flex.space-x-4.bg-gray-200.rounded-full {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Pour les très petits écrans */
+@media (max-width: 375px) {
+    .logo-container {
+        width: 95%;
+        height: 50px;
+    }
+    
+    .menu-container div {
+        font-size: 0.8rem;
+    }
+    
+    h1.text-4xl.md\:text-5xl.lg\:text-6xl {
+        font-size: 1.5rem;
+    }
+    
+    .portfolio-button {
+        height: 50px;
+    }
+    
+    .keypoint p {
+        font-size: 0.8rem !important;
+    }
+    
+    .why-us-section h2 {
+        font-size: 2rem;
+    }
+    
+    .benefit-title {
+        font-size: 1.1rem;
+    }
+    
+    .impact-section {
+        padding: 2rem 0 30rem;
+    }
+}
+
+/* Adaptations spécifiques pour les appareils de grande taille */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+    
+    .menu-container {
+        min-width: 950px;
+    }
+    
+    .hero-content {
+        margin-left: 10%;
+    }
+    
+    .image-container .absolute.inset-0.bg-\[\#1D1832\].rounded-\[70px\] {
+        width: 650px;
+        height: 700px;
+    }
+    
+    .secure-section {
+        padding: 4rem !important;
+    }
+    
+    .why-us-phones .phone-1 {
+        width: 700px;
+    }
+    
+    .why-us-phones .phone-2 {
+        width: 900px;
+        left: -350px;
+    }
+    
+    .laptop-container {
+        max-width: 800px;
+    }
+    
+    .advantage-box-container {
+        width: 450px;
+    }
+}
+
+/* Navigation mobile avancée */
+@media (max-width: 768px) {
+    /* Ajout d'un menu hamburger pour les petits écrans */
+    .menu-container {
+        position: relative;
+    }
+    
+    /* Si vous souhaitez ajouter un menu hamburger, vous pourriez le faire ici
+    .mobile-menu-button {
+        display: block;
+    }
+    
+    .menu-items {
+        display: none;
+    }
+    
+    .menu-items.active {
+        display: flex;
+        flex-direction: column;
+    }
+    */
+}
+
+/* Régler le problème de superposition dans la section impact */
+@media (max-width: 992px) {
+    .impact-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .laptop-container {
+        order: 1;
+        margin-bottom: 2rem;
+        margin-top: 0;
+    }
+    
+    .advantage-box-left, .advantage-box-right, .advantage-box-bottom {
+        position: static;
+        order: 2;
+        margin: 1rem auto;
+        transform: none;
+    }
+    
+    .advantage-box-container {
+        margin-bottom: 2rem;
+    }
+    
+    .connection-line, .horizontal-line {
+        display: none;
+    }
+}
+
+/* Fix pour l'affichage des téléphones dans la section "Pourquoi nous?" */
+@media (max-width: 768px) {
+    .why-us-phones {
+        position: relative;
+        height: 350px;
+        margin-top: 3rem;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .benefits {
+        width: 100%;
     }
 }
 
@@ -462,20 +999,20 @@ footer.bg-\[\#1D1832\] {
             </div>
             
             <!-- Navigation items déplacés vers la gauche avec CSS -->
-            <div class="menu-container p-6 w-auto border border-indigo-900/20">
-                <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 items-center">
-                    <div class="text-white hover:text-blue-300 transition cursor-pointer">ENTREPRISE</div>
-                    <div class="bg-transparent border border-white rounded-full px-6 py-2 text-white hover:bg-white hover:text-purple-900 transition cursor-pointer">PARTICULIER</div>
-                    <div class="text-white hover:text-blue-300 transition cursor-pointer">RESSOURCE</div>
-                    <!-- Langue selector -->
-                    <div class="flex items-center space-x-2 text-white">
-                        <span>LANGUE</span>
-                        <div class="flex items-center space-x-1">
-                            <img src="https://flagcdn.com/16x12/fr.png" alt="Français" class="w-6 h-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </div>
+            <div class="menu-container p-12 w-auto border border-indigo-900/20">
+              <div class="flex flex-col md:flex-row md:space-x-12 items-center">
+                <div class="text-white hover:text-blue-300 transition cursor-pointer px-4">ENTREPRISE</div> <!-- Ajout de px-4 -->
+                <div class="bg-transparent border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-purple-900 transition cursor-pointer">PARTICULIER</div> <!-- px-6 augmenté à px-8 -->
+                <div class="text-white hover:text-blue-300 transition cursor-pointer px-4">RESSOURCE</div> <!-- Ajout de px-4 -->
+                <!-- Langue selector avec plus d'espace -->
+                <div class="flex items-center space-x-3 text-white"> <!-- space-x-2 augmenté à space-x-3 -->
+                    <span>LANGUE</span>
+                    <div class="flex items-center space-x-2"> <!-- space-x-1 augmenté à space-x-2 -->
+                        <img src="https://flagcdn.com/16x12/fr.png" alt="Français" class="w-6 h-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -491,14 +1028,17 @@ footer.bg-\[\#1D1832\] {
                 </h1>
 
                 <!-- Portfolio button -->
-                <div class="inline-flex items-center bg-gray-200 hover:bg-white transition rounded-full pl-8 pr-2 py-3 space-x-4 cursor-pointer portfolio-button">
+                  <div class="inline-flex items-center justify-center bg-gray-200 hover:bg-white transition rounded-full cursor-pointer portfolio-button">
                     <span class="font-medium text-gray-800">Portfolio</span>
-                    <div class="bg-black rounded-full p-2 icon-container">
+                    <div class="bg-black icon-container flex items-center justify-center ml-2" style="
+    margin-top: 15px;
+"> <!-- Ajout de flex et ml-2 pour espacement -->
                         <svg xmlns="http://www.w3.org/2000/svg" class="text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                         </svg>
                     </div>
-                </div>
+                  </div>
+
             </div>
         </div>
     </div>
@@ -563,7 +1103,7 @@ footer.bg-\[\#1D1832\] {
     </div>
 
     <!-- Section "Pourquoi nous?" -->
-    <div class="why-us-section py-16 overflow-hidden">
+    <div class="why-us-section py-18 overflow-hidden">
         <div class="container mx-auto px-4 relative">
             <!-- Info bubble -->
             <div class="info-bubble">
@@ -573,7 +1113,7 @@ footer.bg-\[\#1D1832\] {
             <div class="flex flex-col md:flex-row">
                 <!-- Left side - Title and phones -->
                 <div class="md:w-1/2 mb-10 md:mb-0">
-                    <h2 class="text-7xl font-bold why-us-heading">
+                    <h2 class="text-7xl font-bold ">
                         Pourquoi <span class="text-[#5A9BD4]">nous?</span>
                     </h2>
                     
@@ -676,76 +1216,79 @@ footer.bg-\[\#1D1832\] {
     </div>
 
 
-    <!-- Footer -->
-<footer class="bg-[#1D1832] text-white py-2 mt-24">
-    <div class="container mx-auto px-4">
-        <!-- Section principale du footer -->
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 border-b border-gray-700 pb-8">
-            <!-- Logo et réseaux sociaux -->
-            <div class="mb-6 md:mb-0">
-                <img src="/assets/logo/VPI_Logo_black_background.png" alt="Vanilla Pay International" class="h-12 mb-4">
-                <!-- Icônes réseaux sociaux -->
-                <div class="flex space-x-4 bg-gray-200 rounded-full p-2 w-max">
-                    <a href="#" class="hover:opacity-75 transition">
-                        <img src="https://cdnjs.cloudflare.com/ajax/libs/simple-icons/8.8.0/facebook.svg" alt="Facebook" class="w-8 h-8 p-1">
-                    </a>
-                    <a href="#" class="hover:opacity-75 transition">
-                        <img src="https://cdnjs.cloudflare.com/ajax/libs/simple-icons/8.8.0/instagram.svg" alt="Instagram" class="w-8 h-8 p-1">
-                    </a>
-                    <a href="#" class="hover:opacity-75 transition">
-                        <img src="https://cdnjs.cloudflare.com/ajax/libs/simple-icons/8.8.0/linkedin.svg" alt="LinkedIn" class="w-8 h-8 p-1">
-                    </a>
-                </div>
-            </div>
-            
-            <!-- Navigation -->
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <!-- Menu principal -->
-                <div class="hidden md:block">
-                    <ul class="space-y-3">
-                        <li><a href="#" class="hover:text-[#5A9BD4] transition">Accueil</a></li>
-                        <li><a href="#" class="hover:text-[#5A9BD4] transition">Services</a></li>
-                        <li><a href="#" class="hover:text-[#5A9BD4] transition">À propos</a></li>
-                        <li><a href="#" class="hover:text-[#5A9BD4] transition">FAQ</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Contact -->
-                <div class="col-span-3 md:text-right">
-                    <div class="space-y-3">
-                        <div class="flex items-center justify-start md:justify-end">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                            </svg>
-                            <a href="mailto:business@vanillapay.net" class="hover:text-[#5A9BD4] transition">business@vanillapay.net</a>
-                        </div>
-                        <div class="flex items-center justify-start md:justify-end">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                            </svg>
-                            <a href="tel:+261385916273" class="hover:text-[#5A9BD4] transition">+261 38 59 162 73</a>
-                        </div>
-                        <div class="flex items-center justify-start md:justify-end">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
-                            </svg>
-                            <a href="https://blog.vanilla-pay.net" target="_blank" class="hover:text-[#5A9BD4] transition">blog.vanilla-pay.net</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Copyright et mentions légales -->
-        <div class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
-            <div>© 2025 Votre Entreprise. Tous droits réservés.</div>
-            <div class="mt-4 md:mt-0">
-                <a href="#" class="hover:text-white transition">Conditions générales</a>
-                <span class="mx-2">-</span>
-                <a href="#" class="hover:text-white transition">Mentions légales</a>
-            </div>
-        </div>
-    </div>
+ <!-- Footer -->
+<footer class="bg-[#1D1832] text-white py-6">
+  <div class="container mx-auto px-4">
+      <!-- Section principale du footer -->
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 border-b border-white pb-6">
+          <!-- Logo et réseaux sociaux -->
+          <div class="flex flex-col md:flex-row md:space-x-12 mb-6 md:mb-0">
+              <!-- Logo et réseaux sociaux -->
+              <div>
+                  <img src="/assets/logo/VPI_Logo_black_background.png" alt="Vanilla Pay International" class="h-12 mb-4">
+                  <!-- Icônes réseaux sociaux -->
+                  <div class="flex space-x-4 bg-gray-200 rounded-full p-2 w-max">
+                      <a href="#" class="hover:opacity-75 transition">
+                          <img src="https://cdnjs.cloudflare.com/ajax/libs/simple-icons/8.8.0/facebook.svg" alt="Facebook" class="w-8 h-8 p-1">
+                      </a>
+                      <a href="#" class="hover:opacity-75 transition">
+                          <img src="https://cdnjs.cloudflare.com/ajax/libs/simple-icons/8.8.0/instagram.svg" alt="Instagram" class="w-8 h-8 p-1">
+                      </a>
+                      <a href="#" class="hover:opacity-75 transition">
+                          <img src="https://cdnjs.cloudflare.com/ajax/libs/simple-icons/8.8.0/linkedin.svg" alt="LinkedIn" class="w-8 h-8 p-1">
+                      </a>
+                  </div>
+              </div>
+              
+              <!-- Ligne verticale de séparation -->
+              <div class="hidden md:block h-auto w-px bg-white mx-6 self-stretch"></div>
+              
+              <!-- Menu principal déplacé à côté -->
+              <div class="mt-6 md:mt-0">
+                  <ul class="space-y-3">
+                      <li><a href="#" class="hover:text-[#5A9BD4] transition">Accueil</a></li>
+                      <li><a href="#" class="hover:text-[#5A9BD4] transition">Services</a></li>
+                      <li><a href="#" class="hover:text-[#5A9BD4] transition">À propos</a></li>
+                      <li><a href="#" class="hover:text-[#5A9BD4] transition">FAQ</a></li>
+                  </ul>
+              </div>
+          </div>
+          
+          <!-- Contact -->
+          <div class="md:text-right">
+              <div class="space-y-3">
+                  <div class="flex items-center justify-start md:justify-end">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
+                      <a href="mailto:business@vanillapay.net" class="hover:text-[#5A9BD4] transition">business@vanillapay.net</a>
+                  </div>
+                  <div class="flex items-center justify-start md:justify-end">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                      </svg>
+                      <a href="tel:+261385916273" class="hover:text-[#5A9BD4] transition">+261 38 59 162 73</a>
+                  </div>
+                  <div class="flex items-center justify-start md:justify-end">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                      </svg>
+                      <a href="https://blog.vanilla-pay.net" target="_blank" class="hover:text-[#5A9BD4] transition">blog.vanilla-pay.net</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Copyright et mentions légales -->
+      <div class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+          <div>© 2025 Votre Entreprise. Tous droits réservés.</div>
+          <div class="mt-4 md:mt-0">
+              <a href="#" class="hover:text-white transition">Conditions générales</a>
+              <span class="mx-2">-</span>
+              <a href="#" class="hover:text-white transition">Mentions légales</a>
+          </div>
+      </div>
+  </div>
 </footer>
 
 
