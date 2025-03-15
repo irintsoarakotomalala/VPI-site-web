@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanilla Pay International</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<div class="nav-container">
+    <!-- Mobile menu button -->
+    <button id="mobile-menu-toggle" class="mobile-menu-button">☰</button>
+    
+    <!-- Rectangle logo avec bordure droite arrondie -->
+    <div class="logo-container p-5">
+        <img src="/assets/logo/VPI_Logo_black_background.png" alt="Vanilla Pay International" class="h-16 mx-auto">
+    </div>
+    
+    <!-- Navigation items -->
+    <div id="menu-container" class="menu-container p-12 border border-indigo-900/20">
+        <div class="flex md:flex-row md:space-x-12 items-center">
+            <div class="text-white hover:text-blue-300 transition cursor-pointer px-4">ENTREPRISE</div>
+            <div class="bg-transparent border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-purple-900 transition cursor-pointer">PARTICULIER</div>
+            <div class="text-white hover:text-blue-300 transition cursor-pointer px-4">RESSOURCE</div>
+            <!-- Langue selector -->
+            <div class="flex items-center space-x-3 text-white">
+                <span>LANGUE</span>
+                <div class="flex items-center space-x-2">
+                    <img src="https://flagcdn.com/16x12/fr.png" alt="Français" class="w-6 h-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // JavaScript pour le menu mobile
+    const menuToggle = document.getElementById('mobile-menu-toggle');
+    const menuContainer = document.getElementById('menu-container');
+    
+    menuToggle.addEventListener('click', function() {
+        menuContainer.classList.toggle('active');
+    });
+</script>
+
+</body>
+</html>

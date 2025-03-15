@@ -14,35 +14,36 @@
             padding: 0;
         }
 
+
         /* Styles pour la section Impact */
-        .impact-section {
-            padding: 12rem 0 15rem;
+        .feature-display {
+            padding: 12rem 0 12rem;
             position: relative;
             overflow: visible;
-            margin-top: -100px;
+            margin-top: -110px;
             z-index: 7;
             min-height: 1000px;
         }
 
-        .laptop-container {      
+        .device-showcase {      
             margin: 40px auto 0;
             max-width: 700px;
             z-index: 21;
             position: relative;
         }
 
-        .laptop-container img {
+        .device-showcase img {
             width: 100%;
             transform: scale(1.15);
         }
 
         /* Lignes de connexion */
-        .connection-line {
+        .link-wire {
             position: absolute;
             background-color: #ffffff;
         }
 
-        .advantage-box {
+        .feature-card {
             transition: transform 0.3s ease;
             min-height: 200px;
             display: flex;
@@ -54,7 +55,7 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        .advantage-box-container {
+        .feature-wrapper {
             width: 400px;
             position: relative;
             display: flex;
@@ -64,27 +65,27 @@
         }
 
         /* Position spécifique pour chaque box */
-        .advantage-box-left {
+        .feature-left {
             position: absolute;
             left: 5%;
             top: 130px;
         }
 
-        .advantage-box-bottom {
+        .feature-bottom {
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
             bottom: 40px;
         }
 
-        .advantage-box-right {
+        .feature-right {
             position: absolute;
             right: 5%;
             top: 400px;
         }
 
         /* Ligne horizontale pour Impact (à gauche) */
-        .advantage-box-left .connection-line {
+        .feature-left .link-wire {
             height: 120px;
             width: 5px;
             background-color: #1D1832;
@@ -92,7 +93,7 @@
             left: 50%;
         }
 
-        .advantage-box-left .horizontal-line {
+        .feature-left .crossbar {
             position: absolute;
             height: 5px;
             width: 350px;
@@ -102,7 +103,7 @@
         }
 
         /* Ligne pour Sécurité (en bas) */
-        .advantage-box-bottom .connection-line {
+        .feature-bottom .link-wire {
             height: 200px;
             width: 5px;
             background-color: #5A9BD4;
@@ -111,7 +112,7 @@
         }
 
         /* Ligne pour Confort (à droite) */
-        .advantage-box-right .connection-line {
+        .feature-right .link-wire {
             height: 141px;
             width: 5px;
             background-color: #454F9D;
@@ -120,7 +121,7 @@
         }
 
         /* Ligne horizontale pour Confort (à droite) */
-        .advantage-box-right .horizontal-line {
+        .feature-right .crossbar {
             position: absolute;
             height: 5px;
             width: 400px;
@@ -130,7 +131,7 @@
         }
 
         /* Icônes dans les boîtes */
-        .icon-container {
+        .icon-box {
             background-color: rgba(255, 255, 255, 0.2);
             border-radius: 50%;
             width: 60px;
@@ -142,100 +143,98 @@
         }
 
         /* Ajustements pour les écrans supérieurs à 1900px */
-        @media (min-width: 1900px) {
-            .impact-section {
+        @media (min-width: 1700px) {
+            .feature-display {
                 padding: 15rem 0 20rem;
                 min-height: 1200px;
             }
 
-            .laptop-container {
+            .device-showcase {
                 max-width: 900px;
             }
 
-            .advantage-box-container {
+            .feature-wrapper {
                 width: 500px;
             }
 
-            .advantage-box-left {
+            .feature-left {
                 left: 10%;
                 top: 150px;
             }
 
-            .advantage-box-bottom {
+            .feature-bottom {
                 bottom: 60px;
             }
 
-            .advantage-box-right {
+            .feature-right {
                 right: 10%;
                 top: 450px;
             }
 
-            .advantage-box-left .horizontal-line {
+            .feature-left .crossbar {
                 width: 650px;
             }
 
-            .advantage-box-right .horizontal-line {
+            .feature-right .crossbar {
                 width: 500px;
             }
         }
 
-        /* Ajustements pour les tablettes (entre 762px et 1600px) */
-        @media (min-width: 762px) and (max-width: 1600px) {
-            .impact-section {
+        /* Ajustements pour les tablettes (entre 762px et 1400px) */
+        @media (min-width: 762px) and (max-width: 1400px) {
+            .feature-display {
                 padding: 10rem 0 15rem;
                 min-height: 1100px;
             }
 
-            .laptop-container {
+            .device-showcase {
                 max-width: 600px;
             }
 
-            .advantage-box-container {
+            .feature-wrapper {
                 width: 350px;
             }
 
-            .advantage-box-left {
+            .feature-left {
                 left: 5%;
                 top: 450px;
             }
 
-            .advantage-box-bottom {
+            .feature-bottom {
                 bottom: 150px;
             }
 
-            .advantage-box-right {
+            .feature-right {
                 right: 5%;
                 top: 550px;
             }
 
-      
-
-            .advantage-box-right .horizontal-line {
+            .feature-right .crossbar {
                 width: 350px;
             }
         }
 
         /* Ajustements pour les écrans mobiles */
-        @media (max-width: 768px) {
-            .impact-section {
-                padding: 8rem 0 50rem;
-                min-height: 1400px;
+        @media (max-width: 1000px) {
+            .feature-display {
+                padding: 13rem 0 0rem;
+                min-height: 1120px;
             }
 
-            .advantage-box-container {
+            .feature-wrapper {
                 position: static;
                 margin: 2rem auto;
                 width: 90%;
                 max-width: 400px;
             }
 
-            .advantage-box-left, .advantage-box-bottom, .advantage-box-right {
+            .feature-left, .feature-bottom, .feature-right {
                 position: static;
                 transform: none;
                 margin-bottom: 2rem;
             }
 
-            .connection-line, .horizontal-line {
+            .link-wire, .crossbar {
                 display: none;
             }
         }
@@ -243,51 +242,53 @@
 </head>
 <body>
     <!-- Section Impact et Avantages -->
-    <div class="impact-section py-1">
-        <div class="container mx-auto px-4">            
+    <div class="feature-display py-1">
+        <div class="container mx-auto px-4 " style="
+        margin-top: -165px;
+    ">            
             <!-- Image centrale du laptop -->
-            <div class="laptop-container">
+            <div class="device-showcase">
                 <img src="/assets/images/iMac_Mockup_3.png" alt="Application sur laptop" class="">
             </div>
             
             <!-- Boîte Impact (gauche) -->
-            <div class="advantage-box-container advantage-box-left">
-                <div class="advantage-box bg-[#1D1832] text-white rounded-3xl p-6 text-center">
-                    <div class="icon-container mx-auto mb-4">
+            <div class="feature-wrapper feature-left">
+                <div class="feature-card bg-[#1D1832] text-white rounded-3xl p-6 text-center">
+                    <div class="icon-box mx-auto mb-4">
                         <img src="/assets/images/stats (1).png" alt="Icône graphique" class="w-12 h-12 mx-auto">
                     </div>
                     <h3 class="text-2xl font-semibold mb-2">Impact</h3>
                     <p class="text-sm">Participation au développement du tourisme en Afrique</p>
                 </div>
-                <div class="connection-line"></div>
-                <div class="horizontal-line"></div>
+                <div class="link-wire"></div>
+                <div class="crossbar"></div>
             </div>
             
             <!-- Boîte Sécurité (bas) -->
-            <div class="advantage-box-container advantage-box-bottom">
-                <div class="advantage-box bg-[#5A9BD4] text-white rounded-3xl p-6 text-center">
-                    <div class="icon-container mx-auto mb-4">
+            <div class="feature-wrapper feature-bottom">
+                <div class="feature-card bg-[#5A9BD4] text-white rounded-3xl p-6 text-center">
+                    <div class="icon-box mx-auto mb-4">
                         <img src="/assets/images/police.png" alt="Icône bouclier" class="w-12 h-12 mx-auto">
                     </div>
                     <h3 class="text-2xl font-semibold mb-2">Sécurité</h3>
                     <p class="text-sm">Solution pour un paiement digital sécurisé</p>
                 </div>
-                <div class="connection-line"></div>
+                <div class="link-wire"></div>
             </div>
             
             <!-- Boîte Confort (droite) -->
-            <div class="advantage-box-container advantage-box-right">
-                <div class="advantage-box bg-[#454F9D] text-white rounded-3xl p-6 text-center">
-                    <div class="icon-container mx-auto mb-4">
+            <div class="feature-wrapper feature-right">
+                <div class="feature-card bg-[#454F9D] text-white rounded-3xl p-6 text-center">
+                    <div class="icon-box mx-auto mb-4">
                         <img src="/assets/images/fintech.png" alt="Icône confort" class="w-12 h-12 mx-auto">
                     </div>
                     <h3 class="text-2xl font-semibold mb-2">Confort</h3>
                     <p class="text-sm">Pratique et facile à utiliser</p>
                 </div>
-                <div class="connection-line"></div>
-                <div class="horizontal-line"></div>
+                <div class="link-wire"></div>
+                <div class="crossbar"></div>
             </div>
         </div>
     </div>
 </body>
-</html>
+</html> 

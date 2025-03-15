@@ -9,7 +9,10 @@ app.use(express.static('public'));
 
 // Routes
 app.get('/', (req, res) => {
-    res.render('accueilTest', { title: 'Accueil' });
+   // res.render('whyUs', { title: 'Accueil' });
+   res.render('accueilTest', { title: 'Accueil' });
+    // res.render('test', { title: 'Accueil' });
+    //  res.render('impact', { title: 'Accueil' });
 });
 
 app.get('/test', (req, res) => {
