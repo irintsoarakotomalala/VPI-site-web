@@ -14,343 +14,387 @@
             padding: 0;
         }
         
-        /* Section "Pourquoi nous?" */
-        .why-us-section {
-            background: linear-gradient(to bottom, #1D1832, #5A9BD4);
-            color: white;
-            padding: 8rem 8rem 3rem;
-            position: relative;
-            margin-top: -80px;
-            z-index: 5;
-            margin-bottom: 0;
-        }
-        
-        .why-us-section h2 {
-            margin-top: 1rem;
-            position: relative;
-            top: 50px;
-        }
-
-        .why-us-phones {
-            position: relative;
-            margin-left: 1rem;
-            margin-top: 4rem;
-        }
-
-        .why-us-phones img{
-            max-width: 132%;
-            height: auto;
-        }
-
-        .phone-1 {
-            top: 70px;
-            position: relative;
-            z-index: 2;
-            right:80px;
-        }
-
-        .phone-2 {
-            position: absolute;
-            top: 40px;
-            margin-left: -90px;
-            z-index: 1;
-            width: 800px;
-        }
-
-        .benefit-container {
-            gap: 26rem;
-        }
-        
-        .benefits {
-            margin-top: 15rem;
-            margin-left: -10rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .benefit-card {
-            width: 400px;
-            margin-bottom: 3rem;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .benefit-number {
-            font-size: 5rem;
-            font-weight: bold;
-            color: #5A9BD4;
-            line-height: 1;
-            margin-bottom: 0.5rem;
-        }
-
-        .benefit-title {
-            font-weight: 600;
-            font-size: 1.3rem;
-            color: white;
-            margin-bottom: 0.5rem;
-        }
-
-        .benefit-desc {
-            color: #e0e0e0;
-            line-height: 1.6;
-        }
-
-        .info-bubble {
-            position: absolute;
-            right: 0;
-            margin-right: -180px;
-            max-width: 700px;
-            padding: 3rem 2.5rem 2rem 3rem;
-            background-color: white;
-            color: #333;
-            border-top-left-radius: 12rem;
-            border-bottom-left-radius: 12rem;
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .download_container {
-            margin-left: 12rem;
-            display: inline-block;
-            height: 60px; 
-            margin-top: 100px;           
-        }
-
-        .download-button {
-            background-color: white;
-            color: #1D1832;
-            border-radius: 2rem;
-            padding: 0.5rem 1rem;
-            white-space: nowrap;
-            display: inline-flex;
-            align-items: center;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            font-size: 0.9rem;
-            height: auto;
-        }
-
-        .download-button:hover {
-            background-color: #f0f0f0;
-            transform: translateY(-2px);
-        }
-
-        .download-icon {
-            margin-right: 0.5rem;
-        }
-        
-        /* Media Queries pour rendre la page responsive */
-        
-        /* Grand écran */
-        @media (min-width: 1441px) {
-            .phone-1 {
-                width: 650px;
-            }
-            .phone-2 {
-                width: 850px;
-                left: -320px;
-            }
-        }
-        
-        /* Écrans moyens et petits desktops */
-        @media (max-width: 1440px) {
-            .benefit-container {
-                gap: 20rem;
-            }
-            .phone-1 {
-                width: 550px;
-            }
-            .phone-2 {
-                width: 750px;
-                left: -280px;
-            }
-            .info-bubble {
-                max-width: 600px;
-                margin-right: -150px;
-            }
-        }
-        
-        /* Petits desktops et grandes tablettes */
-        @media (max-width: 1200px) {
-            .info-bubble {
-                max-width: 500px;
-                margin-right: -100px;
-                border-top-left-radius: 8rem;
-                border-bottom-left-radius: 8rem;
-                padding: 2rem 2rem 1.5rem 2.5rem;
-            }
-            .benefit-container {
-                gap: 15rem;
-            }
-            .benefits {
-                margin-left: -5rem;
-            }
-            .phone-1 {
-                width: 450px;
-            }
-            .phone-2 {
-                width: 600px;
-                left: -200px;
-            }
-            .benefit-card {
-                width: 350px;
-            }
-            .download_container {
-                margin-left: 8rem;
-            }
-        }
-        
-        /* Tablettes */
-        @media (max-width: 1302px) {
-            .why-us-section h2 {
-                font-size: 4rem;
-                top: 30px;
-            }
-            .info-bubble {
+            /* Section "Pourquoi nous?" */
+            .why-us-section {
+                background: linear-gradient(to bottom, #1D1832, #5A9BD4);
+                color: white;
+                padding: 8rem 8rem 3rem;
                 position: relative;
-                margin-right: 0;
-                max-width: 100%;
-                border-radius: 2rem;
-                margin-bottom: 2rem;
-                margin-top: 6rem;
+                margin-top: -80px;
+                z-index: 5;
+                margin-bottom: 0;
             }
-            .phone-1 {
-                width: 400px;
-                margin-left: auto;
-                margin-right: auto;
-                display: block;
-            }
-            .phone-2 {
-                width: 500px;
-                left: -120px;
-                top: 60px;
-            }
-            .benefits {
-                margin-top: 5rem;
-                margin-left: 0;
-            }
-            .benefit-container {
-                gap: 2rem;
-            }
-            .benefit-card {
-                width: 100%;
-            }
-            .download_container {
-                margin-left: 0;
-                margin-top: 50px;
-            }
-            .why-us-phones {
-                margin-top: 4rem;
-                display: flex;
-                justify-content: center;
-            }
-        }
-        
-        /* Petites tablettes et grands mobiles */
-        @media (max-width: 768px) {
-            .why-us-section {
-                padding-top: 6rem;
-            }
+            
             .why-us-section h2 {
-                font-size: 3.5rem;
-                text-align: center;
-                top: 0;
+                margin-top: 1rem;
+                position: relative;
+                top: 50px;
             }
+
+            .why-us-phones {
+                position: relative;
+                margin-left: 1rem;
+                margin-top: 4rem;
+            }
+
+            .why-us-phones img{
+                max-width: 132%;
+                height: auto;
+            }
+
             .phone-1 {
-                width: 350px;
+                top: 70px;
+                position: relative;
+                z-index: 2;
+                right:80px;
+            }
+
+            .phone-2 {
+                position: absolute;
                 top: 40px;
+                margin-left: -90px;
+                z-index: 1;
+                width: 800px;
             }
-            .phone-2 {
-                width: 450px;
-                left: -100px;
-                top: 30px;
-            }
-            .benefit-number {
-                font-size: 4rem;
-            }
-            .benefit-title {
-                font-size: 1.2rem;
-            }
-            .why-us-phones {
-                margin-top: 3rem;
-                margin-left: 0;
-            }
-        }
-        
-        /* Mobiles */
-        @media (max-width: 576px) {
-            .why-us-section {
-                margin-top: -40px;
-                padding-top: 4rem;
-            }
-            .why-us-section h2 {
-                font-size: 2.8rem;
-            }
-            .why-us-phones {
-                margin-top: 2rem;
-                overflow: hidden;
-                max-width: 100%;
-            }
-            .phone-1 {
-                width: 250px;
-                top: 30px;
-                margin: 0 auto;
-            }
-            .phone-2 {
-                width: 300px;
-                left: -50px;
-                top: 20px;
-            }
-            .benefit-card {
-                margin-bottom: 2rem;
-            }
-            .benefit-number {
-                font-size: 3.5rem;
-            }
+
             .benefit-container {
-                gap: 1rem;
-                grid-template-columns: 1fr !important;
+                gap: 26rem;
             }
-            .info-bubble {
-                padding: 1.5rem;
-                margin-top: 4rem;
-                font-size: 0.9rem;
+            
+            .benefits {
+                margin-top: 15rem;
+                margin-left: -10rem;
+                position: relative;
+                z-index: 1;
             }
-            .download_container {
-                margin-top: 20px;
-                justify-content: center;
+
+            .benefit-card {
+                width: 400px;
+                margin-bottom: 3rem;
                 display: flex;
+                flex-direction: column;
             }
-        }
-        
-        /* Très petits mobiles */
-        @media (max-width: 375px) {
-            .why-us-section h2 {
-                font-size: 2.3rem;
-            }
-            .phone-1 {
-                width: 200px;
-            }
-            .phone-2 {
-                width: 250px;
-                left: -40px;
-            }
+
             .benefit-number {
-                font-size: 3rem;
+                font-size: 5rem;
+                font-weight: bold;
+                color: #5A9BD4;
+                line-height: 1;
+                margin-bottom: 0.5rem;
             }
+
             .benefit-title {
-                font-size: 1.1rem;
+                font-weight: 600;
+                font-size: 1.3rem;
+                color: white;
+                margin-bottom: 0.5rem;
             }
+
             .benefit-desc {
-                font-size: 0.9rem;
+                color: #e0e0e0;
+                line-height: 1.6;
             }
-        }
+
+            .info-bubble {
+                position: absolute;
+                right: 0;
+                margin-right: -180px;
+                max-width: 700px;
+                padding: 3rem 2.5rem 2rem 3rem;
+                background-color: white;
+                color: #333;
+                border-top-left-radius: 12rem;
+                border-bottom-left-radius: 12rem;
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .download_container {
+                margin-left: 12rem;
+                display: inline-block;
+                height: 60px; 
+                margin-top: 100px;           
+            }
+
+            .download-button {
+                background-color: white;
+                color: #1D1832;
+                border-radius: 2rem;
+                padding: 0.5rem 1rem;
+                white-space: nowrap;
+                display: inline-flex;
+                align-items: center;
+                font-weight: 600;
+                transition: all 0.3s ease;
+                text-decoration: none;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                font-size: 0.9rem;
+                height: auto;
+            }
+
+            .download-button:hover {
+                background-color: #f0f0f0;
+                transform: translateY(-2px);
+            }
+
+            .download-icon {
+                margin-right: 0.5rem;
+            }
+            
+            /* Media Queries pour rendre la page responsive */
+            
+            /* Grand écran */
+            @media (min-width: 1441px) {
+                .phone-1 {
+                    width: 650px;
+                }
+                .phone-2 {
+                    width: 850px;
+                    left: -320px;
+                }
+            }
+            
+            /* Écrans moyens et petits desktops */
+            @media (max-width: 1440px) {
+                .benefit-container {
+                    gap: 20rem;
+                }
+                .phone-1 {
+                    width: 550px;
+                }
+                .phone-2 {
+                    width: 750px;
+                    left: -280px;
+                }
+                .info-bubble {
+                    max-width: 600px;
+                    margin-right: -150px;
+                }
+            }
+            
+       /* Écrans intermédiaires (769px à 1100px) - Avec benefits poussés à gauche */
+@media (min-width: 769px) and (max-width: 1350px) {
+    .why-us-section {
+        padding: 6rem 2rem 3rem;
+    }
+    
+    .why-us-section h2 {
+        font-size: 3.2rem;
+        top: 20px;
+    }
+    
+    .benefit-container {
+        gap: 1rem !important;
+    }
+    
+    .benefits {
+        margin-top: 6rem;
+        margin-left: -3rem; /* Poussé plus à gauche */
+    }
+    
+    .benefit-card {
+        width: 120% !important;
+        max-width: 280px; /* Légèrement réduit pour donner plus d'espace */
+        margin-bottom: 2rem;
+        padding-right: 0.5rem; /* Ajoute un peu d'espace entre les cartes */
+        margin-left: -56px;
+    }
+     /* Ciblage spécifique du second benefit */
+     .benefit-card:nth-of-type(2) {
+        margin-left: 15px; /* Pousse le second benefit vers la droite */
+    }
+    
+    .benefit-desc {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+    
+    .phone-1 {
+        width: 320px;
+        right: 40px;
+    }
+    
+    .phone-2 {
+        width: 420px;
+        left: -120px;
+        top: 50px;
+    }
+    
+    .info-bubble {
+        max-width: 400px;
+        margin-right: -80px;
+        padding: 1.8rem;
+        font-size: 0.85rem;
+        border-top-left-radius: 8rem;
+        border-bottom-left-radius: 8rem;
+    }
+    
+    .download_container {
+        margin-left: 0; /* Ajusté pour alignement */
+        margin-top: 70px;
+    }
+    
+    /* Force la mise en page en deux colonnes pour cette taille d'écran */
+    .benefit-container.grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+    }
+    
+    /* Ajuster la largeur de la colonne des bénéfices pour donner plus d'espace */
+    .md\:w-1\/2.pl-0.md\:pl-16.benefits {
+        padding-left: 0.5rem !important;
+    }
+}
+            
+            /* Tablettes */
+            @media (max-width: 1352px) {
+                .why-us-section h2 {
+                    font-size: 4rem;
+                    top: 30px;
+                }
+                .info-bubble {
+                    position: relative;
+                    margin-right: 0;
+                    max-width: 100%;
+                    border-radius: 2rem;
+                    margin-bottom: 2rem;
+                    margin-top: 6rem;
+                }
+                .phone-1 {
+                    width: 400px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    display: block;
+                }
+                .phone-2 {
+                    width: 500px;
+                    left: -120px;
+                    top: 60px;
+                }
+                .benefits {
+                    margin-top: 5rem;
+                    margin-left: 0;
+                }
+                .benefit-container {
+                    gap: 2rem;
+                }
+                .benefit-card {
+                    width: 100%;
+                }
+                .download_container {
+                    margin-left: 0;
+                    margin-top: 50px;
+                }
+                .why-us-phones {
+                    margin-top: 4rem;
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+            
+            /* Petites tablettes et grands mobiles */
+            @media (max-width: 768px) {
+                .why-us-section {
+                    padding-top: 6rem;
+                }
+                .why-us-section h2 {
+                    font-size: 3.5rem;
+                    text-align: center;
+                    top: 0;
+                }
+                .phone-1 {
+                    width: 350px;
+                    top: 40px;
+                }
+                .phone-2 {
+                    width: 450px;
+                    left: -100px;
+                    top: 30px;
+                }
+                .benefit-number {
+                    font-size: 4rem;
+                }
+                .benefit-title {
+                    font-size: 1.2rem;
+                }
+                .why-us-phones {
+                    margin-top: 3rem;
+                    margin-left: 0;
+                }
+            }
+            
+            /* Mobiles */
+            @media (max-width: 576px) {
+                .why-us-section {
+                    margin-top: -40px;
+                    padding-top: 4rem;
+                }
+                .why-us-section h2 {
+                    font-size: 2.8rem;
+                }
+                .why-us-phones {
+                    margin-top: 2rem;
+                    overflow: hidden;
+                    max-width: 100%;
+                }
+                .phone-1 {
+                    width: 250px;
+                    top: 30px;
+                    margin: 0 auto;
+                }
+                .phone-2 {
+                    width: 300px;
+                    left: -50px;
+                    top: 20px;
+                }
+                .benefit-card {
+                    margin-bottom: 2rem;
+                }
+                .benefit-number {
+                    font-size: 3.5rem;
+                }
+                .benefit-container {
+                    gap: 1rem;
+                    grid-template-columns: 1fr !important;
+                }
+                .info-bubble {
+                    padding: 1.5rem;
+                    margin-top: 4rem;
+                    font-size: 0.9rem;
+                }
+                .download_container {
+                    margin-top: 20px;
+                    justify-content: center;
+                    display: flex;
+                }
+            }
+            
+            /* Très petits mobiles */
+            @media (max-width: 375px) {
+                .why-us-section h2 {
+                    font-size: 2.3rem;
+                }
+                .phone-1 {
+                    width: 200px;
+                }
+                .phone-2 {
+                    width: 250px;
+                    left: -40px;
+                }
+                .benefit-number {
+                    font-size: 3rem;
+                }
+                .benefit-title {
+                    font-size: 1.1rem;
+                }
+                .benefit-desc {
+                    font-size: 0.9rem;
+                }
+            }
     </style>
 </head>
 <body>

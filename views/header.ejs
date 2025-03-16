@@ -1,86 +1,381 @@
+<!-- Style pour le header fixe et les liens actifs avec animation au scroll -->
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vanilla Pay International</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+    /* Style de base pour le header */
+    .nav-container {
+        display: flex;
+        align-items: center;
+        padding-top: 25px;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        background-color: transparent;
+        transition: padding-top 0.3s ease, background-color 0.3s ease;
+    }
 
+    /* Classe pour le header quand on scroll */
+    .nav-container.scrolled {
+        padding-top: 0;
+        background-color: #1D1832;
+    }
 
-        .logo-container, .menu-container {
-            background-color: #1D1832;
-            height: 100px;
-            display: flex;
-            align-items: center;
+    body {
+        padding-top: 105px;
+    }
+
+    .logo-container, .menu-container {
+        background-color: #1D1832;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        transition: all 0.3s ease;
+    }
+
+    .logo-container {
+        width: 100%;
+        max-width: 450px;
+        border-top-right-radius: 50px;
+        border-bottom-right-radius: 50px;
+        padding-left: 3%;
+        transition: all 0.3s ease, border-radius 0.3s ease;
+    }
+
+    /* Logo container quand on scroll */
+    .scrolled .logo-container {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .logo-full {
+        display: block;
+        height: 56px;
+        transition: height 0.3s ease;
+    }
+
+    .scrolled .logo-full {
+        height: 46px;
+    }
+
+    .logo-symbol {
+        display: none;
+        height: 56px;
+        transition: height 0.3s ease;
+    }
+
+    .scrolled .logo-symbol {
+        height: 46px;
+    }
+
+    .menu-container {
+        border-radius: 60px;
+        margin-left: auto;
+        margin-right: 1%;
+        transition: all 0.3s ease, border-radius 0.3s ease;
+    }
+
+    /* Menu container quand on scroll */
+    .scrolled .menu-container {
+        border-radius: 0;
+        margin-right: 0;
+    }
+
+    .menu-container div {
+        font-size: 1.2rem;
+    }
+
+    .scrolled .menu-container div {
+        font-size: 1.1rem;
+    }
+
+    .menu-container .flex .md\:space-x-8 {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+    }
+
+    /* Style pour les liens du menu */
+    .menu-item {
+        text-decoration: none;
+        color: white;
+        transition: color 0.3s;
+        cursor: pointer;
+        padding: 0 0.75rem;
+    }
+
+    .menu-item:hover {
+        color: #93c5fd; /* blue-300 */
+    }
+
+    /* Style pour l'élément actif (avec bordure arrondie) */
+    .menu-item.active {
+        background-color: transparent;
+        border: 1px solid white;
+        border-radius: 9999px; /* full */
+        padding: 0.375rem 1.5rem;
+        transition: all 0.3s ease;
+    }
+
+    .menu-item.active:hover {
+        background-color: white;
+        color: #581c87; /* purple-900 */
+    }
+
+    /* Bouton menu burger - caché par défaut */
+    .burger-menu {
+        display: none;
+        position: absolute;
+        top: 30px;
+        right: 20px;
+        z-index: 1000;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: white;
+        font-size: 24px;
+        transition: top 0.3s ease;
+    }
+
+    .scrolled .burger-menu {
+        top: 20px;
+    }
+
+    /* Media Queries améliorées */
+@media (max-width: 1280px) {
+    .logo-container {
+        max-width: 350px;
+    }
+    
+    .menu-container {
+        margin-right: 10px;
+        padding: 0 20px !important;
+    }
+    
+    .scrolled .menu-container {
+        margin-right: 0;
+    }
+    
+    .menu-container div {
+        font-size: 0.95rem;
+    }
+    
+    .menu-item {
+        padding: 0 0.5rem;
+    }
+    
+    .menu-item.active {
+        padding: 0.375rem 1rem;
+    }
+}
+
+@media (max-width: 1230px) {
+    .logo-container {
+        max-width: 300px;
+    }
+    
+    .menu-container {
+        padding: 0 15px !important;
+    }
+    
+    .menu-container .flex.md\:flex-row {
+        gap: 8px;
+    }
+    
+    .menu-container .flex.md\:flex-row > a {
+        padding: 0 4px !important;
+        font-size: 0.9rem;
+    }
+    
+    .menu-item.active {
+        padding: 0.3rem 0.8rem !important;
+    }
+    
+    /* Réduire l'espace pour le sélecteur de langue */
+    .menu-container .flex.items-center.space-x-2 {
+        margin-left: 5px;
+        gap: 4px !important;
+    }
+    
+    .menu-container .flex.items-center.space-x-2 span {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 1100px) {
+    .logo-container {
+        max-width: 250px;
+    }
+    
+    .menu-container {
+        padding: 0 12px !important;
+    }
+    
+    .menu-container .flex.md\:flex-row {
+        gap: 5px;
+    }
+    
+    .menu-container .flex.md\:flex-row > a {
+        padding: 0 3px !important;
+        font-size: 0.85rem;
+    }
+    
+    .menu-item.active {
+        padding: 0.25rem 0.6rem !important;
+    }
+    
+    /* Réduire davantage l'espace pour le sélecteur de langue */
+    .menu-container .flex.items-center.space-x-2 {
+        gap: 2px !important;
+    }
+    
+    .menu-container .flex.items-center.space-x-2 span {
+        font-size: 0.8rem;
+    }
+    
+    /* Réduire la taille du drapeau */
+    .menu-container .w-6.h-4 {
+        width: 1.2rem;
+        height: 0.9rem;
+    }
+}
+
+/* Transition vers le logo symbole entre 900px et 1000px (seuil augmenté) */
+@media (max-width: 1000px) and (min-width: 770px) {
+    .logo-full {
+        display: none;
+    }
+    
+    .logo-symbol {
+        display: block;
+    }
+    
+    .logo-container {
+        max-width: 120px;
+        justify-content: center;
+    }
+    
+    /* Modification du menu-container pour qu'il occupe tout l'espace restant */
+    .menu-container {
+        padding: 0 18px !important;
+        flex-grow: 1;  /* Permet au conteneur de s'étendre */
+        margin-right: 0;  /* Supprime la marge à droite */
+        display: flex;
+        justify-content: center;  /* Centre le contenu horizontalement */
+    }
+    
+    .menu-container .flex.md\:flex-row {
+        gap: 12px;
+        width: 100%;  /* Utilise toute la largeur disponible */
+        justify-content: center;  /* Centre les éléments du menu */
+    }
+    
+    .menu-container .flex.md\:flex-row > a {
+        font-size: 0.9rem;
+    }
+}
+/* Ajustements supplémentaires pour la zone problématique */
+@media (max-width: 950px) and (min-width: 770px) {
+    .menu-container .flex.md\:flex-row {
+        gap: 10px;
+    }
+    
+    .menu-item {
+        white-space: nowrap;
+    }
+    
+    /* Réduire la taille du texte LANGUE */
+    .menu-container .flex.items-center.space-x-2 span {
+        font-size: 0.75rem;
+    }
+    
+    /* Raccourcir le texte si nécessaire */
+    .menu-container .flex.items-center.space-x-2 span:after {
+        content: "";
+    }
+}
+    
+
+    @media (max-width: 770px) {
+        .nav-container {
+            flex-direction: column;
+            align-items: flex-start;
         }
         
         .logo-container {
-            width: 100%;
-            max-width: 450px;
-            border-top-right-radius: 50px;
-            border-bottom-right-radius: 50px;
-            padding-left: 10%;
+            max-width: 100%;
+            border-radius: 0;
+            padding-left: 20px;
+            height: 70px;
+            z-index: 20;
         }
         
-        .nav-container {
-            display: flex;
-            align-items: center;
-            padding-top: 30px;
-            width: 100%;
-            position: relative;
+        .logo-full {
+            display: block;
+        }
+        
+        .logo-symbol {
+            display: none;
         }
         
         .menu-container {
-            border-radius: 60px;
-            margin-left: auto;
-            margin-right: 10%;
-            padding: 0 1.5rem;
-            min-width: 850px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 0;
+            overflow: hidden;
+            margin: 0;
+            border-radius: 0;
+            padding: 80px 20px 20px !important;
+            transition: height 0.3s ease;
         }
         
-        .menu-container div {
-            font-size: 1.2rem;
+        .menu-container.active {
+            height: 100vh;
         }
         
-        .menu-container .flex .md\:space-x-8 {
-            margin-left: 1rem;
-            margin-right: 1rem;
+        .menu-container .flex.md\:flex-row {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 20px;
         }
         
+        .burger-menu {
+            display: block;
+        }
         
-    </style>
-</head>
-<body>
+        .scrolled .burger-menu {
+            top: 20px;
+        }
+    }
+</style>
 
 <!-- Navigation -->
 <div class="nav-container">
-    <!-- Mobile menu button -->
-    <button id="mobile-menu-toggle" class="mobile-menu-button">☰</button>
+    <!-- Bouton menu burger pour mobile -->
+    <button class="burger-menu" id="burger-button">☰</button>
     
     <!-- Rectangle logo avec bordure droite arrondie -->
-    <div class="logo-container p-5">
-        <img src="/assets/logo/VPI_Logo_black_background.png" alt="Vanilla Pay International" class="h-16 mx-auto">
+    <div class="logo-container p-4">
+        <a href="index.html">
+            <img src="/assets/logo/VPI_Logo_black_background.png" alt="Vanilla Pay International" class="logo-full mx-auto">
+            <img src="/assets/logo/VPI_Logo_black_background_symbol.png" alt="Vanilla Pay International" class="logo-symbol mx-auto">
+        </a>
     </div>
     
     <!-- Navigation items -->
-    <div id="menu-container" class="menu-container p-12 border border-indigo-900/20">
-        <div class="flex md:flex-row md:space-x-12 items-center">
-            <div class="text-white hover:text-blue-300 transition cursor-pointer px-4">ENTREPRISE</div>
-            <div class="bg-transparent border border-white rounded-full px-8 py-2 text-white hover:bg-white hover:text-purple-900 transition cursor-pointer">PARTICULIER</div>
-            <div class="text-white hover:text-blue-300 transition cursor-pointer px-4">RESSOURCE</div>
+    <div id="menu-container" class="menu-container p-10 border border-indigo-900/20">
+        <div class="flex md:flex-row md:space-x-8 items-center">
+            <a href="index.html" class="menu-item" id="nav-accueil">ACCUEIL</a>
+            <a href="entreprise.html" class="menu-item" id="nav-entreprise">ENTREPRISE</a>
+            <a href="particulier.html" class="menu-item" id="nav-particulier">PARTICULIER</a>
+            <a href="ressource.html" class="menu-item" id="nav-ressource">RESSOURCE</a>
             <!-- Langue selector -->
-            <div class="flex items-center space-x-3 text-white">
+            <div class="flex items-center space-x-2 text-white">
                 <span>LANGUE</span>
-                <div class="flex items-center space-x-2">
+                <div class="flex items-center space-x-1">
                     <img src="https://flagcdn.com/16x12/fr.png" alt="Français" class="w-6 h-4">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -92,14 +387,71 @@
 </div>
 
 <script>
-    // JavaScript pour le menu mobile
-    const menuToggle = document.getElementById('mobile-menu-toggle');
-    const menuContainer = document.getElementById('menu-container');
-    
-    menuToggle.addEventListener('click', function() {
-        menuContainer.classList.toggle('active');
+    document.addEventListener('DOMContentLoaded', function() {
+        // Script pour le menu burger mobile
+        document.getElementById('burger-button').addEventListener('click', function() {
+            document.getElementById('menu-container').classList.toggle('active');
+            this.textContent = this.textContent === '☰' ? '✕' : '☰';
+        });
+        
+        // Fermer le menu si on clique sur un élément du menu
+        const menuItems = document.querySelectorAll('#menu-container .menu-item');
+        menuItems.forEach(item => {
+            item.addEventListener('click', function() {
+                document.getElementById('menu-container').classList.remove('active');
+                document.getElementById('burger-button').textContent = '☰';
+            });
+        });
+        
+        // Script pour marquer la page active
+        function setActivePage() {
+            // Récupérer le nom du fichier de l'URL actuelle
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            
+            // Identifier l'élément à activer
+            let activeElement;
+            
+            if (currentPage.includes('index') || currentPage === '') {
+                activeElement = document.getElementById('nav-accueil');
+            } else if (currentPage.includes('entreprise')) {
+                activeElement = document.getElementById('nav-entreprise');
+            } else if (currentPage.includes('particulier')) {
+                activeElement = document.getElementById('nav-particulier');
+            } else if (currentPage.includes('ressource')) {
+                activeElement = document.getElementById('nav-ressource');
+            }
+            
+            // Appliquer la classe active
+            if (activeElement) {
+                // Supprimer la classe active de tous les éléments
+                menuItems.forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Ajouter la classe active à l'élément correspondant à la page actuelle
+                activeElement.classList.add('active');
+            }
+        }
+        
+        // Exécuter au chargement de la page
+        setActivePage();
+        
+        // Animation du header lors du défilement
+        const navContainer = document.querySelector('.nav-container');
+        
+        // Fonction pour gérer l'effet de scroll
+        function handleScroll() {
+            if (window.scrollY > 50) {
+                navContainer.classList.add('scrolled');
+            } else {
+                navContainer.classList.remove('scrolled');
+            }
+        }
+        
+        // Ajouter l'écouteur d'événements pour le défilement
+        window.addEventListener('scroll', handleScroll);
+        
+        // Vérifier au chargement de la page
+        handleScroll();
     });
 </script>
-
-</body>
-</html>

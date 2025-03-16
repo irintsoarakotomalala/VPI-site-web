@@ -15,12 +15,20 @@
             /* overflow-x: hidden; */
         }
         
+
+        .header-container {
+        /* position: relative; */
+        z-index: 50;
+        /* padding-top: -25px; */
+    }
+
+
         .hero-section {
             background-image: linear-gradient(rgba(29, 24, 50, 0.5), rgba(29, 24, 50, 0.5)), url('/assets/images/pexels-mikhail-nilov-7534804\ 1.png');
             background-size: cover;
             background-position: center;
-            height: 795px;
-            margin-top: -100px; /* Ajouter un padding en bas */
+            height: 895px;
+            margin-top: -235px; /* Ajouter un padding en bas */
             /* width: 100%; */
             
             
@@ -31,7 +39,7 @@
         }
         
         .portfolio-button {
-            margin-top: 25px;
+            margin-top: 10px;
             display: inline-flex;
             align-items: center;
             padding: 0.5rem 0.5rem 0.5rem 1.5rem;
@@ -455,14 +463,17 @@
     </style>
 </head>
 <body>
-    <div class="hero-section">
-        
-        
+
+    <div class="header-container">
+        <%-include ('header')%>
+    </div>
+
+    <div class="hero-section">     
         <!-- Hero content -->
         <div class="px-4 md:px-10 pt-12 md:pt-24 flex flex-col items-start md:ml-20 hero-content">
             <div>
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-12 " style="
-                margin-top: 170px;
+                margin-top: 270px;
             ">
                     <div class="mb-5">SOLUTION INTERNATIONALE</div>
                     <div class="mb-5">DE PAIEMENT NUMÉRIQUE</div>
@@ -544,15 +555,7 @@
 <%-include ('whyUs')%>
 <%-include ('impact')%>
 <%-include ('footer')%>
-    
-    <script>
-        // JavaScript pour le menu mobile
-        const menuToggle = document.getElementById('mobile-menu-toggle');
-        const menuContainer = document.getElementById('menu-container');
-        
-        menuToggle.addEventListener('click', function() {
-            menuContainer.classList.toggle('active');
-        });
+
     </script>
 
 </body>
