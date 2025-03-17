@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vanilla Pay International</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script> 
     <script src="https://cdn.tailwindcss.com"></script>
     <head>
  <style>
@@ -459,6 +461,59 @@
             }
         }
 
+        /* animation hero section et we secure  */
+
+
+        .blue-rectangle {
+        opacity: 0;
+        animation: floatIn 1.2s forwards ease-out;
+        animation-delay: 0.3s;
+        }
+
+        .image-container img {
+        opacity: 0;
+        animation: slideIn 1s forwards ease-out;
+        animation-delay: 0.5s;
+        }
+
+                @keyframes floatIn {
+        0% {
+            transform: translate(80px, -80px) rotate(5deg);
+            opacity: 0;
+        }
+        100% {
+            transform: translate(40px, -40px) rotate(0deg);
+            opacity: 1;
+        }
+        }
+
+        @keyframes slideIn {
+        0% {
+            transform: translateY(100px);
+            opacity: 0;
+        }
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        }
+
+
+
+        /* Pour les écrans plus petits */
+        @media (max-width: 768px) {
+        @keyframes floatIn {
+            0% {
+            transform: translate(40px, -40px) rotate(5deg);
+            opacity: 0;
+            }
+            100% {
+            transform: translate(15px, -15px) rotate(0deg);
+            opacity: 1;
+            }
+        }
+        }
+
 
     </style>
 </head>
@@ -469,19 +524,18 @@
     </div>
 
     <div class="hero-section">     
-        <!-- Hero content -->
+        <!-- Hero content avec animations -->
         <div class="px-4 md:px-10 pt-12 md:pt-24 flex flex-col items-start md:ml-20 hero-content">
             <div>
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-12 " style="
-                margin-top: 270px;
-            ">
-                    <div class="mb-5">SOLUTION INTERNATIONALE</div>
-                    <div class="mb-5">DE PAIEMENT NUMÉRIQUE</div>
-                    <div>POUR LES TOURISTES</div>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-12" style="margin-top: 270px;">
+                    <div class="mb-5" data-aos="fade-up" data-aos-delay="200">SOLUTION INTERNATIONALE</div>
+                    <div class="mb-5" data-aos="fade-up" data-aos-delay="400">DE PAIEMENT NUMÉRIQUE</div>
+                    <div data-aos="fade-up" data-aos-delay="600">POUR LES TOURISTES</div>
                 </h1>
-
-                <!-- Portfolio button avec icône arrondie -->
-                <div class="inline-flex items-center justify-center bg-gray-200 hover:bg-white transition rounded-full cursor-pointer portfolio-button">
+    
+                <!-- Portfolio button avec animation -->
+                <div class="inline-flex items-center justify-center bg-gray-200 hover:bg-white transition rounded-full cursor-pointer portfolio-button" 
+                     data-aos="fade-up" data-aos-delay="800">
                     <span class="font-medium text-gray-800">Portfolio</span>
                     <div class="bg-black icon-container flex items-center justify-center ml-2">
                         <svg xmlns="http://www.w3.org/2000/svg" class="text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -496,20 +550,20 @@
 <!-- Section "We secure the way, people pay" -->
 <div class="bg-white rounded-section">
     <div class="secure-section">
-        <!-- Titre principal -->
-        <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">
+        <!-- Titre principal avec animation -->
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-4" data-aos="fade-up">
             " We secure the way, people pay "
         </h2>
         
-        <!-- Sous-titre -->
-        <p class="text-lg text-center mb-8">
+        <!-- Sous-titre avec animation -->
+        <p class="text-lg text-center mb-8" data-aos="fade-up" data-aos-delay="200">
             Touristes et voyageurs internationaux qui visitent les pays en développement :
         </p>
         
         <!-- Contenu principal - grid layout -->
         <div class="content-grid">
-            <!-- Conteneur pour l'image et le rectangle bleu -->
-            <div class="image-container">
+            <!-- Conteneur pour l'image et le rectangle bleu avec animation -->
+            <div class="image-container" data-aos="fade-right" data-aos-delay="300">
                 <!-- Rectangle bleu foncé en arrière-plan -->
                 <div class="blue-rectangle"></div>
                 <!-- Image -->
@@ -518,8 +572,8 @@
             
             <!-- Keypoints -->
             <div class="keypoints-container">
-                <!-- Point 1 -->
-                <div class="keypoint keypoint-first">
+                <!-- Point 1 avec animation -->
+                <div class="keypoint keypoint-first" data-aos="fade-left" data-aos-delay="400">
                     <div class="keypoint-icon">
                         <img src="/assets/images/give-money.png" alt="Icône billets">
                     </div>
@@ -528,8 +582,8 @@
                     </p>
                 </div>
                 
-                <!-- Point 2 -->
-                <div class="keypoint keypoint-middle">
+                <!-- Point 2 avec animation -->
+                <div class="keypoint keypoint-middle" data-aos="fade-left" data-aos-delay="600">
                     <div class="keypoint-icon">
                         <img src="/assets/images/credit-card.png" alt="Icône carte bancaire">
                     </div>
@@ -538,8 +592,8 @@
                     </p>
                 </div>
                 
-                <!-- Point 3 -->
-                <div class="keypoint keypoint-last">
+                <!-- Point 3 avec animation -->
+                <div class="keypoint keypoint-last" data-aos="fade-left" data-aos-delay="800">
                     <div class="keypoint-icon">
                         <img src="/assets/images/project-management.png" alt="Icône engrenage">
                     </div>
@@ -556,7 +610,17 @@
 <%-include ('impact')%>
 <%-include ('footer')%>
 
-    </script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialisation de AOS
+      AOS.init({
+        duration: 1000,    // durée de l'animation en millisecondes
+        once: true,        // l'animation ne se joue qu'une seule fois
+        offset: 100,       // décalage en pixels par rapport au point de déclenchement
+        easing: 'ease-out' // type d'effet d'animation
+      });
+    });
+  </script>
 
 </body>
 </html>

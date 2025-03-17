@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/test', (req, res) => {
-    res.render('test', { title: 'À propos' });
+    res.render('PmeFreelance', { title: 'À propos' });
 });
 
 // Démarrer le serveur

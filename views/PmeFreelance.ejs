@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanilla Pay International</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Section Hero */
+        .hero-section {
+            background-color: #F8F9FA;
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+        }
+        
+        .hero-content {
+            padding: 5rem 0;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-title {
+            color: #4B5FB6; /* Couleur bleue violet d'après l'image */
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-subtitle {
+            color: #4B5FB6;
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-description {
+            color: #333;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+        
+        .hero-separator {
+            height: 3px;
+            background-color: #4B5FB6;
+            width: 15rem;
+            margin: 1.5rem 0;
+        }
+        
+        .hero-image {
+            position: relative;
+            z-index: 1;
+            border-radius: 1rem 0 0 1rem;
+            overflow: hidden;
+            height: 100%;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        /* Animation d'entrée */
+        .animate-slide-up {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideUp 0.8s forwards;
+            animation-delay: var(--delay, 0s);
+        }
+        
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Media Queries pour responsivité */
+        @media (max-width: 1280px) {
+            .hero-title, .hero-subtitle {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 1024px) {
+            .hero-content {
+                padding: 4rem 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-image {
+                border-radius: 0;
+                height: 300px;
+            }
+            
+            .hero-title, .hero-subtitle {
+                font-size: 1.75rem;
+            }
+            
+            .hero-content {
+                padding: 3rem 1.5rem;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .hero-title, .hero-subtitle {
+                font-size: 1.5rem;
+            }
+            
+            .hero-description {
+                font-size: 1rem;
+            }
+            
+            .hero-separator {
+                width: 10rem;
+            }
+            
+            .hero-image {
+                height: 250px;
+            }
+        }
+        
+        @media (max-width: 375px) {
+            .hero-title, .hero-subtitle {
+                font-size: 1.35rem;
+            }
+            
+            .hero-content {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+   <!-- Include du header EJS -->
+<%- include('header') %>
+
+<!-- Section principale -->
+<section class="international-services">
+  <div class="container">
+    <div class="services-content">
+      <div class="text-content">
+        <h1>Développez vos services <br>à l'international.</h1>
+        <div class="underline"></div>
+        <h2>Nous vous accompagnons</h2>
+        <div class="services-details">
+          <p>Solutions de paiement innovantes pour PME & Freelance</p>
+          <p>Propulsez votre Business à l'International</p>
+        </div>
+      </div>
+      <div class="image-container">
+        <div class="curved-edge"></div>
+        <div class="people-image"></div>
+      </div>
+    </div>
+  </div>
+</section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fonction pour vérifier si un élément est visible dans la viewport
+            function isElementInViewport(el) {
+                const rect = el.getBoundingClientRect();
+                return (
+                    rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
+                    rect.bottom >= 0
+                );
+            }
+            
+            // Fonction pour animer les éléments lorsqu'ils deviennent visibles
+            function animateOnScroll() {
+                const animatedElements = document.querySelectorAll('.animate-slide-up');
+                animatedElements.forEach(element => {
+                    if (isElementInViewport(element) && !element.classList.contains('animated')) {
+                        element.classList.add('animated');
+                        element.style.animationPlayState = 'running';
+                    }
+                });
+            }
+            
+            // Vérifier la position initiale
+            requestAnimationFrame(animateOnScroll);
+            
+            // Ajouter l'écouteur d'événements pour le scroll
+            window.addEventListener('scroll', animateOnScroll);
+        });
+    </script>
+</body>
+</html>

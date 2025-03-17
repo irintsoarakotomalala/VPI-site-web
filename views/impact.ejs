@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vanilla Pay International</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
         
@@ -13,7 +14,6 @@
             margin: 0;
             padding: 0;
         }
-
 
         /* Styles pour la section Impact */
         .feature-display {
@@ -41,6 +41,93 @@
         .link-wire {
             position: absolute;
             background-color: #ffffff;
+        }
+
+        .animate-laptop {
+            opacity: 0;
+            animation: fadeInUp 1.5s forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(1.15);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1.15);
+            }
+        }
+
+        /* Animation des lignes */
+        .animate-line-left-vertical {
+            height: 0;
+            width: 5px;
+            background-color: #1D1832;
+            top: 100%;
+            left: 50%;
+            animation: growVertical 1s forwards;
+            animation-delay: 1s;
+        }
+
+        .animate-line-left-horizontal {
+            height: 5px;
+            width: 0;
+            background-color: #1D1832;
+            top: calc(100% + 120px);
+            left: 50%;
+            animation: growHorizontal 1s forwards;
+            animation-delay: 2s;
+        }
+
+        .animate-line-bottom {
+            height: 0;
+            width: 5px;
+            background-color: #5A9BD4;
+            bottom: 100%;
+            left: 50%;
+            animation: growVerticalUp 1s forwards;
+            animation-delay: 0.6s; /* Animation plus rapide pour le box du bas */
+        }
+
+        .animate-line-right-vertical {
+            height: 0;
+            width: 5px;
+            background-color: #454F9D;
+            bottom: 100%;
+            left: 51%;
+            animation: growVerticalUp 1s forwards;
+            animation-delay: 1s;
+        }
+
+        .animate-line-right-horizontal {
+            height: 5px;
+            width: 0;
+            background-color: #454F9D;
+            right: 48%;
+            bottom: 336px;
+            animation: growHorizontalRight 1s forwards;
+            animation-delay: 2s;
+        }
+
+        @keyframes growVertical {
+            from { height: 0; }
+            to { height: 120px; }
+        }
+
+        @keyframes growVerticalUp {
+            from { height: 0; }
+            to { height: 141px; }
+        }
+
+        @keyframes growHorizontal {
+            from { width: 0; }
+            to { width: 350px; }
+        }
+
+        @keyframes growHorizontalRight {
+            from { width: 0; }
+            to { width: 400px; }
         }
 
         .feature-card {
@@ -73,61 +160,15 @@
 
         .feature-bottom {
             position: absolute;
-            left: 50%;
+            left: 30%; /* Ajustement vers la gauche */
             transform: translateX(-50%);
-            bottom: 40px;
+            bottom: 30px; /* Ajustement vers le bas */
         }
 
         .feature-right {
             position: absolute;
-            right: 5%;
+            right: 2%;
             top: 400px;
-        }
-
-        /* Ligne horizontale pour Impact (à gauche) */
-        .feature-left .link-wire {
-            height: 120px;
-            width: 5px;
-            background-color: #1D1832;
-            top: 100%;
-            left: 50%;
-        }
-
-        .feature-left .crossbar {
-            position: absolute;
-            height: 5px;
-            width: 350px;
-            background-color: #1D1832;
-            top: calc(100% + 120px);
-            left: 50%;
-        }
-
-        /* Ligne pour Sécurité (en bas) */
-        .feature-bottom .link-wire {
-            height: 200px;
-            width: 5px;
-            background-color: #5A9BD4;
-            bottom: 100%;
-            left: 50%;
-        }
-
-        /* Ligne pour Confort (à droite) */
-        .feature-right .link-wire {
-            height: 141px;
-            width: 5px;
-            background-color: #454F9D;
-            bottom: 100%;
-            left: 51%;
-        }
-
-        /* Ligne horizontale pour Confort (à droite) */
-        .feature-right .crossbar {
-            position: absolute;
-            height: 5px;
-            width: 400px;
-            background-color: #454F9D;
-            right: 48%;
-            bottom: 336px;
         }
 
         /* Icônes dans les boîtes */
@@ -163,6 +204,7 @@
             }
 
             .feature-bottom {
+                left: 45%;
                 bottom: 60px;
             }
 
@@ -171,12 +213,22 @@
                 top: 450px;
             }
 
-            .feature-left .crossbar {
-                width: 650px;
+            .animate-line-left-horizontal {
+                animation-name: growHorizontalWide;
             }
 
-            .feature-right .crossbar {
-                width: 500px;
+            .animate-line-right-horizontal {
+                animation-name: growHorizontalWideRight;
+            }
+
+            @keyframes growHorizontalWide {
+                from { width: 0; }
+                to { width: 650px; }
+            }
+
+            @keyframes growHorizontalWideRight {
+                from { width: 0; }
+                to { width: 500px; }
             }
         }
 
@@ -201,6 +253,7 @@
             }
 
             .feature-bottom {
+                left: 45%;
                 bottom: 150px;
             }
 
@@ -209,8 +262,9 @@
                 top: 550px;
             }
 
-            .feature-right .crossbar {
-                width: 350px;
+            @keyframes growHorizontalRight {
+                from { width: 0; }
+                to { width: 350px; }
             }
         }
 
@@ -243,16 +297,14 @@
 <body>
     <!-- Section Impact et Avantages -->
     <div class="feature-display py-1">
-        <div class="container mx-auto px-4 " style="
-        margin-top: -165px;
-    ">            
+        <div class="container mx-auto px-4" style="margin-top: -165px;">            
             <!-- Image centrale du laptop -->
             <div class="device-showcase">
-                <img src="/assets/images/iMac_Mockup_3.png" alt="Application sur laptop" class="">
+                <img src="/assets/images/iMac_Mockup_3.png" alt="Application sur laptop" class="animate-laptop">
             </div>
             
             <!-- Boîte Impact (gauche) -->
-            <div class="feature-wrapper feature-left">
+            <div class="feature-wrapper feature-left" data-aos="fade-right" data-aos-delay="300">
                 <div class="feature-card bg-[#1D1832] text-white rounded-3xl p-6 text-center">
                     <div class="icon-box mx-auto mb-4">
                         <img src="/assets/images/stats (1).png" alt="Icône graphique" class="w-12 h-12 mx-auto">
@@ -260,12 +312,12 @@
                     <h3 class="text-2xl font-semibold mb-2">Impact</h3>
                     <p class="text-sm">Participation au développement du tourisme en Afrique</p>
                 </div>
-                <div class="link-wire"></div>
-                <div class="crossbar"></div>
+                <div class="link-wire animate-line-left-vertical"></div>
+                <div class="link-wire animate-line-left-horizontal"></div>
             </div>
             
             <!-- Boîte Sécurité (bas) -->
-            <div class="feature-wrapper feature-bottom">
+            <div class="feature-wrapper feature-bottom" data-aos="fade-up" data-aos-delay="400"> <!-- Délai réduit -->
                 <div class="feature-card bg-[#5A9BD4] text-white rounded-3xl p-6 text-center">
                     <div class="icon-box mx-auto mb-4">
                         <img src="/assets/images/police.png" alt="Icône bouclier" class="w-12 h-12 mx-auto">
@@ -273,11 +325,11 @@
                     <h3 class="text-2xl font-semibold mb-2">Sécurité</h3>
                     <p class="text-sm">Solution pour un paiement digital sécurisé</p>
                 </div>
-                <div class="link-wire"></div>
+                <div class="link-wire animate-line-bottom"></div>
             </div>
             
             <!-- Boîte Confort (droite) -->
-            <div class="feature-wrapper feature-right">
+            <div class="feature-wrapper feature-right" data-aos="fade-left" data-aos-delay="900">
                 <div class="feature-card bg-[#454F9D] text-white rounded-3xl p-6 text-center">
                     <div class="icon-box mx-auto mb-4">
                         <img src="/assets/images/fintech.png" alt="Icône confort" class="w-12 h-12 mx-auto">
@@ -285,10 +337,23 @@
                     <h3 class="text-2xl font-semibold mb-2">Confort</h3>
                     <p class="text-sm">Pratique et facile à utiliser</p>
                 </div>
-                <div class="link-wire"></div>
-                <div class="crossbar"></div>
+                <div class="link-wire animate-line-right-vertical"></div>
+                <div class="link-wire animate-line-right-horizontal"></div>
             </div>
         </div>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialisation d'AOS
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 1000,
+                once: true,
+                offset: 100,
+                easing: 'ease-out'
+            });
+        });
+    </script>
 </body>
-</html> 
+</html>
